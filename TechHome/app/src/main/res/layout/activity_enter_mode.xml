@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dip"
+        android:src="@mipmap/ic_launcher" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="45dip"
+        android:layout_below="@+id/imgLogo"
+        android:background="@color/colorPrimaryDark"
+        android:text="LOG IN"
+        android:textColor="@color/white_smoke"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="15dip"
+        android:layout_below="@+id/btnLogin"
+        android:background="@color/colorPrimaryDark"
+        android:text="Register"
+        android:textColor="@color/white_smoke"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnGuest"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="15dip"
+        android:layout_below="@+id/btnRegister"
+        android:background="@color/colorPrimaryDark"
+        android:text="Enter As Guest"
+        android:textColor="@color/white_smoke"
+        android:textSize="18sp" />
+
+</RelativeLayout>

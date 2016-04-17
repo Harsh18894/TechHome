@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="210dip"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_gradient"
+    android:orientation="vertical"
+    android:padding="10dip"
+    android:gravity="center"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <com.pkmmte.view.CircularImageView
+        android:id="@+id/imgProfilePic"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        app:border="true"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Harsh Deep Singh"
+        android:textStyle="bold"
+        android:layout_marginTop="15dip"
+        android:gravity="start"
+        android:textSize="18sp"/>
+</LinearLayout>

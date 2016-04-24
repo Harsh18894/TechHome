@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.techHome.fragments.DashboardFragment">
+
+    <RelativeLayout
+        android:id="@+id/llWelcome"
+        android:layout_width="fill_parent"
+        android:layout_height="150dip"
+        android:layout_marginTop="-10dip"
+        android:background="@drawable/background_gradient">
+
+        <com.neopixl.pixlui.components.textview.TextView
+            android:id="@+id/txtWelcomeGreeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Welcome To Tech Home"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <GridView
+        android:id="@+id/gridViewIcons"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/imgLogo"
+        android:layout_marginLeft="-5dip"
+        android:layout_marginRight="-5dip"
+        android:layout_marginTop="-15dip"
+        android:numColumns="auto_fit"
+        android:padding="5dip"
+        android:stretchMode="columnWidth">
+
+    </GridView>
+
+</LinearLayout>

@@ -12,7 +12,6 @@ import android.widget.GridView;
 
 import com.techHome.R;
 import com.techHome.activities.AppliancesActivity;
-import com.techHome.activities.DashboardActivity;
 import com.techHome.activities.ElectricalActivity;
 import com.techHome.activities.PlumbingActivity;
 import com.techHome.activities.WiringActivity;
@@ -24,6 +23,9 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
+
+//Dashboard Fragment
+
 public class DashboardFragment extends android.support.v4.app.Fragment {
 
 
@@ -47,11 +49,14 @@ public class DashboardFragment extends android.support.v4.app.Fragment {
         return parentView;
     }
 
+    //populating the dashboard fraagment with grid icons
+
     private void populate() {
 
         GridAdapter adapter = new GridAdapter(getActivity(), options);
         gridView.setAdapter(adapter);
 
+        //setting up on click listener in gridview
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

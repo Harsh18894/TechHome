@@ -10,6 +10,10 @@ import com.techHome.R;
 /**
  * Created by Dell on 4/13/2016.
  */
+
+
+//Splash Screen
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override

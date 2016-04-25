@@ -14,6 +14,9 @@ import butterknife.ButterKnife;
 /**
  * Created by Dell on 4/16/2016.
  */
+
+//Wiring setup
+
 public class WiringActivity extends AppCompatActivity {
 
 

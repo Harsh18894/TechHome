@@ -12,12 +12,17 @@ import com.techHome.R;
 /**
  * Created by Dell on 4/14/2016.
  */
+
+//Setting up the gridview
+
 public class GridAdapter extends BaseAdapter {
 
     private Context mContext;
     private final String[] options;
     private int[] colors = new int[]{0xff00c78c, 0xffeee685, 0xffffd39b, 0xff7d9ec0, 0xff99cccc};
 
+
+    //a constructor for its use
     public GridAdapter(Context context, String[] options) {
         this.mContext = context;
         this.options = options;
@@ -39,6 +44,8 @@ public class GridAdapter extends BaseAdapter {
         return 0;
     }
 
+
+    //Inflating the gridview with the textview present and setting up the colors of its background
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 

@@ -14,6 +14,9 @@ import butterknife.ButterKnife;
 /**
  * Created by Dell on 4/16/2016.
  */
+
+//Electrical Utilities setup
+
 public class ElectricalActivity extends AppCompatActivity {
 
     @Bind(R.id.toolbar)

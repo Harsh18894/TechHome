@@ -18,6 +18,9 @@ import butterknife.ButterKnife;
 /**
  * Created by Dell on 4/14/2016.
  */
+
+//Login page
+
 public class LoginActivity extends AppCompatActivity {
 
     @Bind(R.id.etUsername)
@@ -47,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
             btnLogin.setBackgroundResource(R.drawable.ripple);
         }
 
+        //logging into the application and clearing the flags
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -20,6 +20,9 @@ import butterknife.ButterKnife;
 /**
  * Created by Dell on 4/14/2016.
  */
+
+//Registration of a user
+
 public class RegisterActivity extends AppCompatActivity {
 
     @Bind(R.id.etName)

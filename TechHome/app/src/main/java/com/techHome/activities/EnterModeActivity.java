@@ -4,12 +4,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.SpannableString;
 import android.view.View;
 import android.widget.Button;
 
-import com.neopixl.pixlui.components.textview.TextView;
 import com.techHome.R;
 
 import butterknife.Bind;
@@ -18,6 +15,9 @@ import butterknife.ButterKnife;
 /**
  * Created by Dell on 4/16/2016.
  */
+
+//entering preferences setup
+
 public class EnterModeActivity extends AppCompatActivity {
 
     @Bind(R.id.btnLogin)
@@ -44,6 +44,7 @@ public class EnterModeActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(R.string.enter_mode);*/
 
 
+        //applying ripple effect on the buttons
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             btnLogin.setBackgroundResource(R.drawable.ripple);
         }

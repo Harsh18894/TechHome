@@ -9,7 +9,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.SpannableString;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -25,7 +24,14 @@ import fr.ganfra.materialspinner.MaterialSpinner;
 /**
  * Created by Dell on 4/16/2016.
  */
+
+//Appliances grid item setup
+
 public class AppliancesActivity extends AppCompatActivity {
+
+/*
+Declaring and intialising the variables..
+*/
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -37,6 +43,7 @@ public class AppliancesActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private Context context;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +51,7 @@ public class AppliancesActivity extends AppCompatActivity {
         populate();
     }
 
+    //populating the variables used and defining their values
     private void populate() {
         ButterKnife.bind(this);
 
@@ -55,6 +63,7 @@ public class AppliancesActivity extends AppCompatActivity {
 
         appliances = getApplication().getResources().getStringArray(R.array.appliance_issue);
 
+        //setting up ripple effect in the buttons
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             btnNext.setBackgroundResource(R.drawable.ripple);
         }
@@ -63,6 +72,7 @@ public class AppliancesActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         materialSpinner.setAdapter(adapter);
 
+        //button to navigate to main page confirming the choice
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

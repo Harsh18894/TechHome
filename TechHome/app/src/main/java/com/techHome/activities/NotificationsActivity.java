@@ -14,6 +14,9 @@ import butterknife.ButterKnife;
 /**
  * Created by Dell on 4/24/2016.
  */
+
+//Notifications setup
+
 public class NotificationsActivity extends AppCompatActivity {
 
     @Bind(R.id.toolbar)

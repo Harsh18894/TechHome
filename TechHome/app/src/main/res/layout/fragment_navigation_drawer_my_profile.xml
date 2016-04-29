@@ -6,5 +6,15 @@
     tools:context="com.techHome.fragments.NavigationDrawerMyProfileFragment">
 
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/profileRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:padding="5dip"/>
+
 
 </RelativeLayout>

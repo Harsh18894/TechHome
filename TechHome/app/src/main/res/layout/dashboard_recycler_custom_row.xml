@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="3dip"
+    android:layout_marginLeft="3dip"
+    android:layout_marginRight="3dip"
+    android:layout_marginTop="3dip"
+    android:elevation="5dip"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dip">
+
+        <ImageView
+            android:id="@+id/imgRecyclerIcon"
+            android:layout_width="match_parent"
+            android:layout_height="120dip"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dip"
+            android:padding="10dip"
+            android:src="@mipmap/ic_launcher" />
+
+        <com.neopixl.pixlui.components.textview.TextView
+            android:id="@+id/txtRecyclerTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgRecyclerIcon"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:padding="5dip"
+            android:text="Dummy Text"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <com.neopixl.pixlui.components.textview.TextView
+            android:id="@+id/txtTitleDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtRecyclerTitle"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:alpha="0.5"
+            android:padding="5dip"
+            android:text="Description"
+            android:textAlignment="center"
+            android:textAppearance="?attr/textAppearanceListItemSmall"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

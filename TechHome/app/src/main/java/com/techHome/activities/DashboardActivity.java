@@ -22,6 +22,8 @@ import android.view.View;
 import com.neopixl.pixlui.components.textview.TextView;
 import com.techHome.R;
 import com.techHome.fragments.DashboardFragment;
+import com.techHome.fragments.NavigationDrawerAboutUsFragment;
+import com.techHome.fragments.NavigationDrawerContactUsFragment;
 import com.techHome.fragments.NavigationDrawerFAQFragment;
 import com.techHome.fragments.NavigationDrawerHistoryFragment;
 import com.techHome.fragments.NavigationDrawerMyProfileFragment;
@@ -121,6 +123,18 @@ public class DashboardActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.frame, navigationDrawerSettingsFragment);
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle(R.string.settings);
+                        return true;
+                    case R.id.about_us:
+                        NavigationDrawerAboutUsFragment navigationDrawerAboutUsFragment = new NavigationDrawerAboutUsFragment();
+                        fragmentTransaction.replace(R.id.frame, navigationDrawerAboutUsFragment);
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle(R.string.about_us);
+                        return true;
+                    case R.id.contact_us:
+                        NavigationDrawerContactUsFragment navigationDrawerContactUsFragment = new NavigationDrawerContactUsFragment();
+                        fragmentTransaction.replace(R.id.frame, navigationDrawerContactUsFragment);
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle(R.string.contact_us);
                         return true;
                     case R.id.faqs:
                         NavigationDrawerFAQFragment navigationDrawerFAQFragment = new NavigationDrawerFAQFragment();

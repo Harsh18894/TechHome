@@ -30,6 +30,9 @@
     <string name="plumbing">Plumbing</string>
     <string name="appliances_activity">Appliances</string>
     <string name="enter_mode">Entering Preference</string>
+    <string name="all_labels">All Labels</string>
+    <string name="about_us">About US</string>
+    <string name="contact_us">Contact Us</string>
 
     <string-array name="appliance_issue">
         <item>@string/ac</item>

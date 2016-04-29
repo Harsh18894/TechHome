@@ -14,112 +14,53 @@
             app:layout_scrollFlags="scroll|enterAlways">
 
     -->
-    <LinearLayout
-        android:id="@+id/llDashboard"
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        app:layout_scrollFlags="scroll|enterAlways">
 
-
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
-
-
-        <FrameLayout
-            android:id="@+id/frame"
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-        </FrameLayout>
-        <!--
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:elevation="4dip"
+                app:layout_scrollFlags="scroll|enterAlways" />
 
-                    <RelativeLayout
-                        android:id="@+id/llWelcome"
-                        android:layout_width="fill_parent"
-                        android:layout_height="150dip"
-                        android:layout_marginTop="-10dip"
-                        android:background="@drawable/background_gradient">
 
-                        <com.neopixl.pixlui.components.textview.TextView
-                            android:id="@+id/txtWelcomeGreeting"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="Welcome To Tech Home"
-                            android:textColor="@color/white"
-                            android:textSize="25sp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
+        </android.support.design.widget.AppBarLayout>
 
-                                          <Button
-                                        android:id="@+id/btnAppliance"
-                                        android:layout_width="171dp"
-                                        android:layout_height="100dp"
-                                        android:layout_below="@+id/imgLogo"
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_marginTop="5dp"
-                                        android:background="#ffdb03"
-                                        android:padding="15dp"
-                                        android:text="Appliance"
-                                        android:textColor="@color/white"
-                                        android:textSize="25sp" />
+            <FrameLayout
+                android:id="@+id/frame"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
-                                    <Button
-                                        android:id="@+id/btnElectrical"
-                                        android:layout_width="172dp"
-                                        android:layout_height="100dp"
-                                        android:layout_below="@+id/imgLogo"
-                                        android:layout_marginTop="5dp"
-                                        android:layout_toRightOf="@+id/btnAppliance"
-                                        android:background="#ff6700"
-                                        android:padding="15dp"
-                                        android:text="Electrical"
-                                        android:textColor="@color/white"
-                                        android:textSize="25sp" />
+            </FrameLayout>
 
-                                    <Button
-                                        android:id="@+id/btnWiring"
-                                        android:layout_width="172dp"
-                                        android:layout_height="100dp"
-                                        android:layout_below="@+id/btnElectrical"
-                                        android:layout_marginLeft="10dp"
-                                        android:background="#222455"
-                                        android:padding="15dp"
-                                        android:text="Wiring"
-                                        android:textColor="@color/white"
-                                        android:textSize="25sp" />
+    </android.support.design.widget.CoordinatorLayout>
 
-                                    <Button
-                                        android:id="@+id/btnOther"
-                                        android:layout_width="172dp"
-                                        android:layout_height="100dp"
-                                        android:layout_below="@+id/btnElectrical"
-                                        android:layout_toRightOf="@+id/btnWiring"
-                                        android:background="#0097a7"
-                                        android:padding="15dp"
-                                        android:text="Other"
-                                        android:textColor="@color/white"
-                                        android:textSize="25sp" />
 
-                    <GridView
-                        android:id="@+id/gridViewIcons"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_below="@+id/imgLogo"
-                        android:layout_marginLeft="-5dip"
-                        android:layout_marginRight="-5dip"
-                        android:layout_marginTop="-15dip"
-                        android:numColumns="auto_fit"
-                        android:padding="5dip"
-                        android:stretchMode="columnWidth">
 
-                    </GridView>
-        -->
-    </LinearLayout>
+    <!--            <GridView
+                    android:id="@+id/gridViewIcons"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_below="@+id/imgLogo"
+                    android:layout_marginLeft="-5dip"
+                    android:layout_marginRight="-5dip"
+                    android:layout_marginTop="-15dip"
+                    android:numColumns="auto_fit"
+                    android:padding="5dip"
+                    android:stretchMode="columnWidth">
 
-    <!--    </android.support.design.widget.CoordinatorLayout>-->
-
+                </GridView>-->
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"

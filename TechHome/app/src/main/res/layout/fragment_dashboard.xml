@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,9 +8,9 @@
     <RelativeLayout
         android:id="@+id/llWelcome"
         android:layout_width="fill_parent"
-        android:layout_height="150dip"
+        android:layout_height="120dip"
         android:layout_marginTop="-10dip"
-        android:background="@drawable/background_gradient">
+        android:background="?attr/colorPrimary">
 
         <com.neopixl.pixlui.components.textview.TextView
             android:id="@+id/txtWelcomeGreeting"
@@ -24,18 +24,33 @@
     </RelativeLayout>
 
 
-    <GridView
-        android:id="@+id/gridViewIcons"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/imgLogo"
-        android:layout_marginLeft="-5dip"
-        android:layout_marginRight="-5dip"
-        android:layout_marginTop="-15dip"
-        android:numColumns="auto_fit"
-        android:padding="5dip"
-        android:stretchMode="columnWidth">
+    <!--
+        <GridView
+            android:id="@+id/gridViewIcons"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/imgLogo"
+            android:layout_marginLeft="-5dip"
+            android:layout_marginRight="-5dip"
+            android:layout_marginTop="-15dip"
+            android:numColumns="auto_fit"
+            android:padding="5dip"
+            android:stretchMode="columnWidth">
 
-    </GridView>
+        </GridView>
+    -->
 
-</LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/dashboardRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llWelcome"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:padding="5dip">
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

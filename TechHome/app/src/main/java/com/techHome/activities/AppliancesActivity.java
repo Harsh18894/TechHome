@@ -76,7 +76,7 @@ Declaring and intialising the variables..
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(AppliancesActivity.this);
+          /*      final AlertDialog.Builder builder = new AlertDialog.Builder(AppliancesActivity.this);
                 builder.setTitle("Confirmation");
                 TextView textView = new TextView(AppliancesActivity.this);
                 textView.setText("Click OK to confirm your order.");
@@ -99,7 +99,9 @@ Declaring and intialising the variables..
 
                 builder.setNegativeButton("Cancel", null);
                 builder.show();
+*/
 
+                startActivity(new Intent(AppliancesActivity.this, AppliancesActivityFinalSelection.class));
             }
         });
     }

@@ -5,7 +5,6 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,7 +91,7 @@ public class DashboardFragment extends android.support.v4.app.Fragment {
         List<DashboardRecyclerInformation> data = new ArrayList<>();
         int[] icons = {R.mipmap.appliances, R.mipmap.wiring, R.mipmap.plumbing};
         String[] titles = {"Appliances", "Wiring", "Plumbing"};
-        String[] descs =  {"Let us take care of your Appliances", "Get your Wiring fixed", "Don't let those pipes leak"};
+        String[] descs = {"Let us take care of your Appliances", "Get your Wiring fixed", "Don't let those pipes leak"};
 
         for (int i = 0; i < titles.length && i < icons.length; i++) {
             DashboardRecyclerInformation current = new DashboardRecyclerInformation();

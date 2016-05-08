@@ -3,9 +3,7 @@ package com.techHome.activities;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.SpannableString;
 
-import com.neopixl.pixlui.components.textview.TextView;
 import com.techHome.R;
 
 import butterknife.Bind;

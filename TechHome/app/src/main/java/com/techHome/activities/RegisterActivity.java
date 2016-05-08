@@ -33,6 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
     EditText etPhoneNumber;
     @Bind(R.id.etAddress)
     EditText etAddress;
+    @Bind(R.id.etPinCode)
+    EditText etPinCode;
     @Bind(R.id.btnRegister)
     Button btnRegister;
     @Bind(R.id.toolbar)
@@ -52,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.register);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
      /*   SpannableString s = new SpannableString("Create New Account");

@@ -33,6 +33,19 @@
     <string name="all_labels">All Labels</string>
     <string name="about_us">About US</string>
     <string name="contact_us">Contact Us</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="register">Create A New Account</string>
+    <string name="phone_number">Phone No.</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="pin_code">Pin Code</string>
+    <string name="registration">Register</string>
+    <string name="city_name">City</string>
+    <string name="select_date">Select Date and Time</string>
 
     <string-array name="appliance_issue">
         <item>@string/ac</item>
@@ -40,6 +53,26 @@
         <item>@string/cooler</item>
         <item>@string/tv</item>
         <item>@string/others</item>
+    </string-array>
+
+    <string-array name="city_names">
+        <item>Kanpur</item>
+        <item>Lucknow</item>
+        <item>Ghaziabad</item>
+        <item>Allahabad</item>
+        <item>Meerut</item>
+        <item>Aligarh</item>
+        <item>Kasol</item>
+        <item>Haridwar</item>
+    </string-array>
+
+    <string-array name="time_slots">
+        <item>7:30 am - 9:30 am</item>
+        <item>9:30 am - 11:30 am</item>
+        <item>11:30 am - 1:30 pm</item>
+        <item>1:30 pm - 3:30 pm</item>
+        <item>3:30 pm - 5:30 pm</item>
+        <item>5:30 pm - 7:00 pm</item>
     </string-array>
 
 </resources>

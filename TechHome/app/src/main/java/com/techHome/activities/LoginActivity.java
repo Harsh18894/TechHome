@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -29,6 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText etPassword;
     @Bind(R.id.btnLogin)
     Button btnLogin;
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
     /* @InjectView(R.id.txtRegister)
      TextView txtRegister;*/
     @Bind(R.id.txtForgotPassword)
@@ -44,6 +47,10 @@ public class LoginActivity extends AppCompatActivity {
     private void populate() {
         ButterKnife.bind(this);
 
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.login);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

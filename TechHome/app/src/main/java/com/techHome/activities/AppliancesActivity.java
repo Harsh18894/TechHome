@@ -1,20 +1,16 @@
 package com.techHome.activities;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
-import com.neopixl.pixlui.components.textview.TextView;
 import com.techHome.R;
 
 import butterknife.Bind;
@@ -37,9 +33,9 @@ Declaring and intialising the variables..
     Toolbar toolbar;
     @Bind(R.id.spinnerAppliances)
     MaterialSpinner materialSpinner;
-    private String[] appliances;
-    @Bind(R.id.btnNext)
+    @Bind(R.id.btnSubmit)
     Button btnNext;
+    private String[] appliances;
     private DrawerLayout drawerLayout;
     private Context context;
 
@@ -65,7 +61,7 @@ Declaring and intialising the variables..
 
         //setting up ripple effect in the buttons
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            btnNext.setBackgroundResource(R.drawable.ripple);
+            btnNext.setBackgroundResource(R.drawable.ripple_rounded);
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(AppliancesActivity.this, android.R.layout.simple_spinner_item, appliances);
@@ -101,8 +97,27 @@ Declaring and intialising the variables..
                 builder.show();
 */
 
-                startActivity(new Intent(AppliancesActivity.this, AppliancesActivityFinalSelection.class));
+                Intent intent = new Intent(AppliancesActivity.this, AppliancesActivityFinalSelection.class);
+                startActivityForResult(intent, 0);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            setResult(RESULT_OK);
+            finish();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(AppliancesActivity.this, DashboardActivity.class);
+        intent.putExtra("type", 1);
+        startActivity(intent);
+        finish();
+
     }
 }

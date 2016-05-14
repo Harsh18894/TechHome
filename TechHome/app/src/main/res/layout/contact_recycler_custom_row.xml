@@ -12,31 +12,40 @@
         android:layout_height="wrap_content">
 
         <com.neopixl.pixlui.components.textview.TextView
-            android:id="@+id/txtAttribute"
+            android:id="@+id/txtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
             android:layout_marginLeft="15dip"
             android:layout_marginRight="15dip"
             android:layout_marginTop="10dip"
+            android:layout_toRightOf="@+id/imgPhoto"
             android:padding="5dip"
             android:text="@string/name"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp" />
+            android:textSize="16sp" />
 
         <com.neopixl.pixlui.components.textview.TextView
-            android:id="@+id/txtValue"
+            android:id="@+id/txtAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtAttribute"
+            android:layout_below="@+id/txtName"
             android:layout_marginBottom="5dip"
             android:layout_marginLeft="15dip"
             android:layout_marginRight="15dip"
             android:layout_marginTop="5dip"
+            android:layout_toRightOf="@+id/imgPhoto"
             android:padding="5dip"
-            android:text="@string/dummy_text"
+            android:text="@string/address"
             android:textColor="@color/black"
             android:textSize="20sp" />
-    </RelativeLayout>
 
+        <com.neopixl.pixlui.components.imageview.ImageView
+            android:id="@+id/imgPhoto"
+            android:layout_width="90dip"
+            android:layout_height="90dip"
+            android:src="@mipmap/ic_launcher" />
+
+    </RelativeLayout>
 </android.support.v7.widget.CardView>
+

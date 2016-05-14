@@ -2,10 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient">
+    android:background="@color/white">
 
-
-    <com.neopixl.pixlui.components.textview.TextView
+    <!--<com.neopixl.pixlui.components.textview.TextView
         android:id="@+id/txtAppName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,12 +15,30 @@
         android:textSize="50sp"
         android:textStyle="bold|italic" />
 
+-->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="114dp"
+        android:src="@mipmap/logo_temp" />
+
+    <ImageView
+        android:id="@+id/imgLogoDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgLogo"
+        android:layout_marginTop="15dip"
+        android:src="@mipmap/tempxyz" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="40dp" />
 
 </RelativeLayout>

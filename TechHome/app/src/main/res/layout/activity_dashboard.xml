@@ -23,29 +23,29 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark">
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:elevation="0dip">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                android:elevation="4dip"
+                android:elevation="0dip"
                 app:layout_scrollFlags="scroll|enterAlways" />
 
 
         </android.support.design.widget.AppBarLayout>
 
-            <FrameLayout
-                android:id="@+id/frame"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            </FrameLayout>
+        </FrameLayout>
 
     </android.support.design.widget.CoordinatorLayout>
-
 
 
     <!--            <GridView
@@ -66,6 +66,5 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/dashboard_drawer_header"
-        app:menu="@menu/menu_dashboard_drawer" />
+        app:headerLayout="@layout/dashboard_drawer_header" />
 </android.support.v4.widget.DrawerLayout>

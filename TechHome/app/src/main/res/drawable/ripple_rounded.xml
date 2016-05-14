@@ -4,6 +4,7 @@
     <item android:id="@android:id/button1">
         <shape android:shape="rectangle">
             <solid android:color="@color/colorPrimary" />
+            <corners android:radius="5dip"></corners>
         </shape>
 
     </item>

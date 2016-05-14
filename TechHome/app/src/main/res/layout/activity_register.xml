@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_smoke"
+    android:background="@color/white"
+    android:fillViewport="true"
     android:orientation="vertical">
-
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="15dip"
-        android:layout_marginLeft="16dip"
-        android:layout_marginRight="16dip"
-        android:layout_marginTop="65dip"
         android:background="#33c5cae9">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
 
         <com.neopixl.pixlui.components.textview.TextView
             android:id="@+id/txtAppName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
             android:layout_marginTop="30dip"
             android:gravity="center_horizontal"
             android:text="@string/app_name"
@@ -35,7 +33,7 @@
             android:layout_below="@+id/txtAppName"
             android:layout_marginLeft="12dip"
             android:layout_marginRight="12dip"
-            android:layout_marginTop="42dip"
+            android:layout_marginTop="30dip"
             android:background="@color/colorPrimaryLight"
             android:elevation="4dip"
             android:hint="@string/name"
@@ -50,7 +48,7 @@
             android:layout_below="@+id/etName"
             android:layout_marginLeft="12dip"
             android:layout_marginRight="12dip"
-            android:layout_marginTop="3dip"
+            android:layout_marginTop="2dip"
             android:background="@color/colorPrimaryLight"
             android:elevation="4dip"
             android:hint="@string/email"
@@ -65,7 +63,7 @@
             android:layout_below="@+id/etEmail"
             android:layout_marginLeft="12dip"
             android:layout_marginRight="12dip"
-            android:layout_marginTop="3dip"
+            android:layout_marginTop="2dip"
             android:background="@color/colorPrimaryLight"
             android:elevation="4dip"
             android:hint="@string/phone_number"
@@ -81,7 +79,7 @@
             android:layout_below="@+id/etPhoneNumber"
             android:layout_marginLeft="12dip"
             android:layout_marginRight="12dip"
-            android:layout_marginTop="3dip"
+            android:layout_marginTop="2dip"
             android:background="@color/colorPrimaryLight"
             android:elevation="4dip"
             android:gravity="top"
@@ -101,7 +99,7 @@
             android:layout_below="@+id/etAddress"
             android:layout_marginLeft="12dip"
             android:layout_marginRight="12dip"
-            android:layout_marginTop="3dip"
+            android:layout_marginTop="2dip"
             android:background="@color/colorPrimaryLight"
             android:elevation="4dip"
             android:hint="@string/city_name"
@@ -116,15 +114,14 @@
             android:layout_below="@+id/etCity"
             android:layout_marginLeft="12dip"
             android:layout_marginRight="12dip"
-            android:layout_marginTop="3dip"
-            android:inputType="number"
+            android:layout_marginTop="2dip"
             android:background="@color/colorPrimaryLight"
             android:elevation="4dip"
             android:hint="@string/pin_code"
+            android:inputType="number"
             android:padding="10dip"
             android:textColor="@color/black"
             android:textSize="18sp" />
-
 
         <Button
             android:id="@+id/btnRegister"
@@ -139,5 +136,4 @@
             android:textSize="24sp" />
 
     </RelativeLayout>
-
-</RelativeLayout>
+</ScrollView>

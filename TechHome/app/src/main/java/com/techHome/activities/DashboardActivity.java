@@ -51,12 +51,17 @@ public class DashboardActivity extends AppCompatActivity {
     @Bind(R.id.navigation_view)
     NavigationView navigation_view;
     private MenuItem previousMenuItem;
+    int type;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        Intent intent = this.getIntent();
+        if (intent != null) {
+            type = intent.getIntExtra("type", 1);
+        }
         populate();
     }
 
@@ -77,6 +82,11 @@ public class DashboardActivity extends AppCompatActivity {
             }
         }
 
+        if (type == 1) {
+            navigation_view.inflateMenu(R.menu.menu_dashboard_drawer);
+        } else {
+            navigation_view.inflateMenu(R.menu.menu_dashboard_drawer_2);
+        }
         //setting up the navigation drawer
         navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -163,6 +173,12 @@ public class DashboardActivity extends AppCompatActivity {
 
                         builder.setNegativeButton("NO", null);
                         builder.show();
+                        return true;
+
+                    case R.id.signin:
+                        Intent i = new Intent(DashboardActivity.this, EnterModeActivity.class);
+                        startActivity(i);
+                        return true;
 
                     default:
                         /*Toast.makeText(getApplicationContext(), "Something's Wrong.", Toast.LENGTH_SHORT).show();*/
@@ -227,6 +243,11 @@ public class DashboardActivity extends AppCompatActivity {
             super.onBackPressed();
         else {
             Intent intent = new Intent(DashboardActivity.this, DashboardActivity.class);
+            if (type == 1) {
+                intent.putExtra("type", 1);
+            } else {
+                intent.putExtra("type", 2);
+            }
             startActivity(intent);
             finish();
         }

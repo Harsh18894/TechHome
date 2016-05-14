@@ -18,15 +18,28 @@
             android:textSize="16sp" />
     -->
 
-    <fr.ganfra.materialspinner.MaterialSpinner
-        android:id="@+id/spinnerCity"
-        android:layout_width="fill_parent"
+    <com.neopixl.pixlui.components.textview.TextView
+        android:id="@+id/txtCharges"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
-        android:layout_marginBottom="15dip"
-        android:layout_marginLeft="15dip"
-        android:layout_marginRight="15dip"
-        android:layout_marginTop="30dip"
+        android:layout_marginTop="25dip"
+        android:alpha="0.7"
+        android:gravity="center"
+        android:text="@string/charges_apply"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/spinnerCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCharges"
+        android:layout_marginBottom="20dip"
+        android:layout_marginLeft="25dip"
+        android:layout_marginTop="25dip"
+        android:padding="10dip"
         app:ms_alignLabels="false"
         app:ms_arrowColor="@color/colorPrimary"
         app:ms_arrowSize="16dip"
@@ -36,7 +49,7 @@
         app:ms_floatingLabelColor="#000000"
         app:ms_highlightColor="@color/colorPrimary"
         app:ms_hint="Select City"
-        app:ms_hintColor="#000000"
+        app:ms_hintColor="#a9a9a9"
         app:ms_thickness="1dip" />
     <!--
 
@@ -50,35 +63,57 @@
             android:textSize="16sp" />
     -->
 
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/spinnerslot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCharges"
+        android:layout_gravity="right"
+        android:layout_marginBottom="20dip"
+        android:layout_marginLeft="45dip"
+        android:layout_marginTop="25dip"
+        android:layout_toRightOf="@+id/spinnerCity"
+        android:padding="10dip"
+        app:ms_alignLabels="false"
+        app:ms_arrowColor="@color/colorPrimary"
+        app:ms_arrowSize="16dip"
+        app:ms_baseColor="@color/colorPrimary"
+        app:ms_enableFloatingLabel="true"
+        app:ms_errorColor="@color/colorElectrical"
+        app:ms_floatingLabelColor="#000000"
+        app:ms_highlightColor="@color/colorPrimary"
+        app:ms_hint="Select Preferred Slot"
+        app:ms_hintColor="#a9a9a9"
+        app:ms_thickness="1dip" />
+
     <Button
         android:id="@+id/btnDate"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnerCity"
-        android:layout_marginBottom="5dip"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
-        android:layout_marginTop="10dip"
+        android:layout_below="@+id/spinnerslot"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
         android:background="@color/colorPrimary"
         android:onClick="setDate"
         android:paddingLeft="32dip"
         android:paddingRight="32dip"
-        android:textSize="18sp"
-        android:text="PICK DATE"
-        android:textColor="@color/white" />
+        android:text="@string/pick_date"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
     <com.neopixl.pixlui.components.textview.TextView
         android:id="@+id/txtDateshow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnDate"
-        android:gravity="center"
-        android:layout_marginTop="5dip"
         android:layout_marginBottom="10dip"
-        android:text="Date"
-        android:textStyle="bold"
+        android:layout_marginTop="8dip"
+        android:gravity="center"
+        android:text="@string/date"
         android:textColor="#000000"
-        android:textSize="22sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
     <!--
 
         <com.neopixl.pixlui.components.textview.TextView
@@ -92,38 +127,17 @@
 
     -->
 
-    <fr.ganfra.materialspinner.MaterialSpinner
-        android:id="@+id/spinnerslot"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtDateshow"
-        android:layout_marginBottom="10dip"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
-        android:layout_marginTop="25dip"
-        app:ms_alignLabels="false"
-        app:ms_arrowColor="@color/colorPrimary"
-        app:ms_arrowSize="16dip"
-        app:ms_baseColor="@color/colorPrimary"
-        app:ms_enableFloatingLabel="true"
-        app:ms_errorColor="@color/colorElectrical"
-        app:ms_floatingLabelColor="#000000"
-        app:ms_highlightColor="@color/colorPrimary"
-        app:ms_hint="Select Preferred Slot"
-        app:ms_hintColor="#000000"
-        app:ms_thickness="1dip" />
-
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btnNext"
+        android:id="@+id/btnSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
-        android:text="Submit"
+        android:text="@string/submit"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="@color/white" />
+        android:textStyle="bold" />
 
 </RelativeLayout>

@@ -29,7 +29,7 @@
             android:layout_below="@+id/imgRecyclerIcon"
             android:layout_gravity="center_vertical|center_horizontal"
             android:padding="5dip"
-            android:text="Dummy Text"
+            android:text="@string/dummy_text"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textSize="22sp"
@@ -43,7 +43,7 @@
             android:layout_gravity="center_vertical|center_horizontal"
             android:alpha="0.5"
             android:padding="5dip"
-            android:text="Description"
+            android:text="@string/description"
             android:textAlignment="center"
             android:textAppearance="?attr/textAppearanceListItemSmall"
             android:textSize="15sp" />

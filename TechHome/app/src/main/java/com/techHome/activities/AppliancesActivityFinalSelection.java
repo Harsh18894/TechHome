@@ -12,6 +12,7 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -57,7 +58,7 @@ public class AppliancesActivityFinalSelection extends AppCompatActivity {
 
         dateView = (com.neopixl.pixlui.components.textview.TextView) findViewById(R.id.txtDateshow);
         btnDate = (Button) findViewById(R.id.btnDate);
-        btnNext = (AppCompatButton) findViewById(R.id.btnNext);
+        btnNext = (AppCompatButton) findViewById(R.id.btnSubmit);
         spinnerCity = (MaterialSpinner) findViewById(R.id.spinnerCity);
         spinnerSlot = (MaterialSpinner) findViewById(R.id.spinnerslot);
 
@@ -72,7 +73,7 @@ public class AppliancesActivityFinalSelection extends AppCompatActivity {
         slot = getApplication().getResources().getStringArray(R.array.time_slots);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            btnDate.setBackgroundResource(R.drawable.ripple);
+            btnDate.setBackgroundResource(R.drawable.ripple_rounded);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -99,7 +100,9 @@ public class AppliancesActivityFinalSelection extends AppCompatActivity {
                         bundle.putString("done", "done");
                         intent.putExtras(bundle);
                         startActivity(intent);
+                        setResult(RESULT_OK);
                         finish();
+
                     }
                 });
 
@@ -113,6 +116,18 @@ public class AppliancesActivityFinalSelection extends AppCompatActivity {
         ArrayAdapter<String> adapter_city = new ArrayAdapter<String>(AppliancesActivityFinalSelection.this, android.R.layout.simple_spinner_item, city);
         adapter_city.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCity.setAdapter(adapter_city);
+
+        spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         ArrayAdapter<String> adapter_time = new ArrayAdapter<String>(AppliancesActivityFinalSelection.this, android.R.layout.simple_spinner_item, slot);
         adapter_time.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

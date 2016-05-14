@@ -63,7 +63,9 @@
     <string name="guest_login">Enter As Guest</string>
     <string name="dummy_text">Dummy Text</string>
     <string name="description">Description</string>
-    <string name="welcome_message">Welcome To TechHome !!</string>
+    <string name="welcome_message">Need Repairmen? We Got Them !!</string>
+    <string name="forgot_password_message">We will send on OTP at your registered email using which you can reset your password.</string>
+    <string name="reset_password">Reset Password</string>
 
     <string-array name="appliance_issue">
         <item>@string/ac</item>

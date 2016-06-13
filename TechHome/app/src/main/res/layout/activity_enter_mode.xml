@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight"
+    android:id="@+id/relative_layout">
 
     <!--<include
         android:id="@+id/toolbar"
@@ -33,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dip"
+        android:layout_marginTop="50dip"
         android:src="@mipmap/logo_temp" />
 
     <Button
@@ -46,29 +48,29 @@
         android:layout_marginRight="20dip"
         android:layout_marginTop="60dip"
         android:background="@drawable/rounded_button"
-        android:text="@string/sign_in"
+        android:text="@string/login"
         android:textColor="@color/white_smoke"
-        android:textSize="18sp" />
+        android:textSize="15dip" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnLogin"
+        android:layout_below="@+id/txtor"
         android:layout_marginBottom="15dip"
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
-        android:layout_marginTop="8dip"
+        android:layout_marginTop="20dip"
         android:background="@drawable/rounded_button"
-        android:text="@string/register"
+        android:text="@string/registration"
         android:textColor="@color/white_smoke"
-        android:textSize="18sp" />
+        android:textSize="15dip" />
 
     <View
         android:id="@+id/viewline1"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:layout_below="@+id/btnRegister"
+        android:layout_below="@+id/btnLogin"
         android:layout_marginLeft="4dip"
         android:layout_marginRight="4dip"
         android:layout_marginTop="20dip"
@@ -79,19 +81,19 @@
         android:id="@+id/txtor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnRegister"
+        android:layout_below="@+id/btnLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dip"
         android:text="@string/or"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="20dip"
         android:textStyle="bold" />
 
     <View
         android:id="@+id/viewline2"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:layout_below="@+id/btnRegister"
+        android:layout_below="@+id/btnLogin"
         android:layout_marginLeft="4dip"
         android:layout_marginRight="4dip"
         android:layout_marginTop="20dip"
@@ -102,13 +104,11 @@
         android:id="@+id/btnGuest"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/viewline1"
-        android:layout_marginLeft="20dip"
-        android:layout_marginRight="20dip"
-        android:layout_marginTop="30dip"
-        android:background="@drawable/rounded_button"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
         android:text="@string/guest_login"
         android:textColor="@color/white_smoke"
-        android:textSize="18sp" />
+        android:textSize="15dip" />
+
 
 </RelativeLayout>

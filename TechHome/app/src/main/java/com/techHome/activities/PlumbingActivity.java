@@ -63,9 +63,28 @@ public class PlumbingActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PlumbingActivity.this, AppliancesActivityFinalSelection.class));
+                Intent intent = new Intent(PlumbingActivity.this, AppliancesActivityFinalSelection.class);
+                startActivityForResult(intent, 0);
             }
             });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            setResult(RESULT_OK);
+            finish();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(PlumbingActivity.this, DashboardActivity.class);
+        intent.putExtra("type", 1);
+        startActivity(intent);
+        finish();
+
     }
 
 

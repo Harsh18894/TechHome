@@ -19,7 +19,7 @@
             android:layout_centerInParent="true"
             android:text="@string/welcome_message"
             android:textColor="@color/white"
-            android:textSize="22sp" />
+            android:textSize="18dip" />
     </RelativeLayout>
 
 

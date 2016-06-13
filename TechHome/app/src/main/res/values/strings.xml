@@ -66,6 +66,24 @@
     <string name="welcome_message">Need Repairmen? We Got Them !!</string>
     <string name="forgot_password_message">We will send on OTP at your registered email using which you can reset your password.</string>
     <string name="reset_password">Reset Password</string>
+    <string name="no_internet">Could not connect to internet</string>
+    <string name="no_internet_title">Network Error</string>
+    <string name="ok">OK</string>
+    <string name="oops">Oops!!</string>
+    <string name="error_message">Some Unexpected Error has Occured</string>
+    <string name="login_activity_invalid_password_title">Invalid Password</string>
+    <string name="login_activity_invalid_password">Password cannot be blank.</string>
+    <string name="login_activity_invalid_phone_title">Invalid Phone Number</string>
+    <string name="login_activity_invalid_phone">Phone Number should be 10 digit long.</string>
+    <string name="new_password">Enter A Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="choose_password">Choose A Password</string>
+    <string name="home">Home</string>
+    <string name="passwords_didnt_match_title">Incorrect Password</string>
+    <string name="passwords_didnt_match">Passwords Didn\'t Match</string>
+    <string name="blank_fields_title">Blank Fields</string>
+    <string name="blank_fields">Mandatory Fields shouldn\'t be blank.</string>
+
 
     <string-array name="appliance_issue">
         <item>@string/ac</item>

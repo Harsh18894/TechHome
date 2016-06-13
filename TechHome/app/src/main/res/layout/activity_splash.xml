@@ -20,17 +20,17 @@
         android:id="@+id/imgLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:src="@mipmap/logo_temp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="114dp"
-        android:src="@mipmap/logo_temp" />
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/imgLogoDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgLogo"
-        android:layout_marginTop="15dip"
+        android:layout_marginTop="10dip"
         android:src="@mipmap/tempxyz" />
 
     <ProgressBar

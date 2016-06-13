@@ -4,6 +4,10 @@
     <group android:checkableBehavior="none">
 
         <item
+            android:id="@+id/dashboardHome"
+            android:icon="@mipmap/home"
+            android:title="@string/home"/>
+        <item
             android:id="@+id/myProfile"
             android:icon="@mipmap/my_profile"
             android:title="@string/my_profile" />
@@ -13,11 +17,11 @@
             android:icon="@mipmap/history"
             android:title="@string/history" />
 
-        <item
+        <!--<item
             android:id="@+id/offers"
             android:icon="@mipmap/app_offers"
             android:title="@string/app_offers" />
-
+-->
         <item
             android:id="@+id/rate"
             android:icon="@mipmap/rates"

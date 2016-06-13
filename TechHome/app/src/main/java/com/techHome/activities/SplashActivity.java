@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.techHome.R;
+import com.techHome.util.Splash;
 
 /**
  * Created by Dell on 4/13/2016.
@@ -28,7 +29,14 @@ public class SplashActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     Toast.makeText(SplashActivity.this, "Some Error Occured", Toast.LENGTH_LONG).show();
                 } finally {
-                    startActivity(new Intent(SplashActivity.this, EnterModeActivity.class));
+                    Splash splash = new Splash();
+                    if (splash.isLogin(SplashActivity.this)){
+                        Intent intent = new Intent(SplashActivity.this, DashboardActivity.class);
+                        startActivity(intent);
+                    }else {
+                        Intent intent = new Intent(SplashActivity.this, EnterModeActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
         };

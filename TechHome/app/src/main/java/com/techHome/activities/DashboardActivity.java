@@ -30,6 +30,7 @@ import com.techHome.fragments.NavigationDrawerMyProfileFragment;
 import com.techHome.fragments.NavigationDrawerOffersFragment;
 import com.techHome.fragments.NavigationDrawerRatesFragment;
 import com.techHome.fragments.NavigationDrawerSettingsFragment;
+import com.techHome.util.Logout;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -104,6 +105,12 @@ public class DashboardActivity extends AppCompatActivity {
                 //opening the fragments upon click of every item in navigtion drawer
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 switch (item.getItemId()) {
+                    case R.id.dashboardHome:
+                        DashboardFragment dashboardFragment = new DashboardFragment();
+                        fragmentTransaction.replace(R.id.frame, dashboardFragment);
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("TechHome");
+                        return true;
                     case R.id.myProfile:
                         NavigationDrawerMyProfileFragment navigationDrawerMyProfileFragment = new NavigationDrawerMyProfileFragment();
                         fragmentTransaction.replace(R.id.frame, navigationDrawerMyProfileFragment);
@@ -116,12 +123,12 @@ public class DashboardActivity extends AppCompatActivity {
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle(R.string.history);
                         return true;
-                    case R.id.offers:
+                /*    case R.id.offers:
                         NavigationDrawerOffersFragment navigationDrawerOffersFragment = new NavigationDrawerOffersFragment();
                         fragmentTransaction.replace(R.id.frame, navigationDrawerOffersFragment);
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle(R.string.app_offers);
-                        return true;
+                        return true;*/
                     case R.id.rate:
                         NavigationDrawerRatesFragment navigationDrawerRatesFragment = new NavigationDrawerRatesFragment();
                         fragmentTransaction.replace(R.id.frame, navigationDrawerRatesFragment);
@@ -158,16 +165,15 @@ public class DashboardActivity extends AppCompatActivity {
                         TextView textView = new TextView(DashboardActivity.this);
                         textView.setText("Are you sure you want to logout?");
                         textView.setGravity(Gravity.CENTER);
-                        textView.setPadding(15, 50, 15, 15);
-                        textView.setTextSize(16);
+                        textView.setPadding(0, 80, 0, 0);
+                        textView.setTextSize(17);
                         builder.setView(textView);
 
                         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(DashboardActivity.this, EnterModeActivity.class);
-                                startActivity(intent);
-                                finish();
+                                Logout logout = new Logout(DashboardActivity.this);
+                                logout.logout();
                             }
                         });
 
@@ -243,14 +249,10 @@ public class DashboardActivity extends AppCompatActivity {
             super.onBackPressed();
         else {
             Intent intent = new Intent(DashboardActivity.this, DashboardActivity.class);
-            if (type == 1) {
-                intent.putExtra("type", 1);
-            } else {
-                intent.putExtra("type", 2);
-            }
             startActivity(intent);
             finish();
         }
+
     }
 }
 

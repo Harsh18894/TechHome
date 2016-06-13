@@ -47,6 +47,7 @@
             android:background="@color/colorPrimaryLight"
             android:elevation="4dip"
             android:hint="@string/phone_number"
+            android:inputType="number"
             android:padding="10dip"
             android:textColor="@color/black"
             android:textSize="18sp" />

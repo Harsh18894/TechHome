@@ -68,7 +68,7 @@
             android:textColor="@color/black"
             android:textSize="18sp" />
 
-        <com.neopixl.pixlui.components.textview.TextView
+  <!--      <com.neopixl.pixlui.components.textview.TextView
             android:id="@+id/txtForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             android:clickable="true"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/black" />
-
+-->
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"

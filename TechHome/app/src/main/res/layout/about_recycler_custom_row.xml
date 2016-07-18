@@ -15,15 +15,15 @@
             android:id="@+id/txtQues"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dip"
             android:layout_marginTop="10dip"
-            android:layout_centerHorizontal="true"
             android:gravity="center"
             android:padding="5dip"
             android:text="@string/name"
             android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            android:textSize="23sp" />
+            android:textSize="23sp"
+            android:textStyle="bold" />
 
         <com.neopixl.pixlui.components.textview.TextView
             android:id="@+id/txtAns"

@@ -40,15 +40,8 @@ public class ContactRecyclerAdapter extends RecyclerView.Adapter<ContactRecycler
         ContactRecyclerInformation current = data.get(position);
         holder.txtName.setText(current.Name);
         holder.txtAddress.setText(current.Address);
-        if(current.imgPhoto==1)
-            holder.imgPhoto.setImageResource(R.mipmap.ic_launcher);
-        if (current.imgPhoto==2)
-            holder.imgPhoto.setImageResource(R.mipmap.contact_us);
-        if(current.imgPhoto==3)
-            holder.imgPhoto.setImageResource(R.mipmap.app_offers);
-        if (current.imgPhoto==4)
-            holder.imgPhoto.setImageResource(R.mipmap.logout);
-    }
+        holder.imgPhoto.setImageResource(current.imgPhoto);
+       }
 
     @Override
     public int getItemCount() {

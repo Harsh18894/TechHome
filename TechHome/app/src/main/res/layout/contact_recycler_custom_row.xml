@@ -23,7 +23,8 @@
             android:padding="5dip"
             android:text="@string/name"
             android:textColor="@color/colorPrimary"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <com.neopixl.pixlui.components.textview.TextView
             android:id="@+id/txtAddress"
@@ -38,15 +39,15 @@
             android:padding="5dip"
             android:text="@string/address"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <com.neopixl.pixlui.components.imageview.ImageView
             android:id="@+id/imgPhoto"
             android:layout_width="85dip"
             android:layout_height="85dip"
-            android:src="@mipmap/ic_launcher"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="10dip"
-            android:layout_centerVertical="true"/>
+            android:src="@mipmap/ic_launcher" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

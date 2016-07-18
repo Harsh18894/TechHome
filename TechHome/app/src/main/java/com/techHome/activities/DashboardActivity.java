@@ -1,7 +1,9 @@
 package com.techHome.activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -15,6 +17,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +26,7 @@ import com.neopixl.pixlui.components.textview.TextView;
 import com.techHome.R;
 import com.techHome.fragments.DashboardFragment;
 import com.techHome.fragments.NavigationDrawerAboutUsFragment;
+import com.techHome.fragments.NavigationDrawerContactUsFragment;
 import com.techHome.fragments.NavigationDrawerContactUsFragment;
 import com.techHome.fragments.NavigationDrawerFAQFragment;
 import com.techHome.fragments.NavigationDrawerHistoryFragment;
@@ -53,6 +57,7 @@ public class DashboardActivity extends AppCompatActivity {
     NavigationView navigation_view;
     private MenuItem previousMenuItem;
     int type;
+    SharedPreferences sp;
 
 
     @Override
@@ -63,6 +68,7 @@ public class DashboardActivity extends AppCompatActivity {
         if (intent != null) {
             type = intent.getIntExtra("type", 1);
         }
+        sp=getSharedPreferences("TechHomeLogin",Context.MODE_PRIVATE);
         populate();
     }
 
@@ -217,6 +223,11 @@ public class DashboardActivity extends AppCompatActivity {
 
         drawer_layout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View convertView = LayoutInflater.from(this).inflate(R.layout.dashboard_drawer_header,null);
+        android.widget.TextView tvUser = (android.widget.TextView) convertView.findViewById(R.id.txtPhone);
+        tvUser.setText(sp.getString("Mobile",null));
+        navigation_view.addHeaderView(convertView);
     }
 
     @Override

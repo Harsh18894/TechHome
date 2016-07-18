@@ -192,5 +192,4 @@ public class LoginAsyncTask extends AsyncTask<Void, Void, Void> implements Netwo
             SnackBar.show(context, messageCustomDialogDTO);
         }
     }
-
 }

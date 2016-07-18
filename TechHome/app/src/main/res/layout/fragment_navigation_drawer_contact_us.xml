@@ -4,14 +4,45 @@
     android:layout_height="match_parent"
     tools:context="com.techHome.fragments.NavigationDrawerContactUsFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/contactRecyclerView"
+    <RelativeLayout
+        android:id="@+id/rl1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginLeft="8dip"
-        android:layout_marginRight="8dip"
-        android:layout_marginTop="8dip"
-        android:padding="3dip" />
+        android:background="@color/colorPrimaryLight">
+
+        <TextView
+            android:id="@+id/txtAboutUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:text="Contact Us"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPrimaryDarker"
+            android:textSize="24sp" />
+
+        <com.neopixl.pixlui.components.imageview.ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtAboutUs"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dip"
+            android:layout_marginTop="8dp"
+            android:src="@mipmap/logo_temp" />
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/contactUsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl1"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:padding="5dip" />
 
 </RelativeLayout>

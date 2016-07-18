@@ -11,9 +11,7 @@ import android.view.ViewGroup;
 
 import com.techHome.R;
 import com.techHome.adapters.ContactRecyclerAdapter;
-import com.techHome.adapters.ProfileRecyclerAdapter;
 import com.techHome.constants.ContactRecyclerInformation;
-import com.techHome.constants.ProfileRecyclerInformation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +24,7 @@ import butterknife.ButterKnife;
  */
 public class NavigationDrawerContactUsFragment extends android.support.v4.app.Fragment {
 
-    @Bind(R.id.contactRecyclerView)
+    @Bind(R.id.contactUsRecyclerView)
     RecyclerView contactRecyclerView;
     private ContactRecyclerAdapter adapter;
     private View parentView;
@@ -56,13 +54,15 @@ public class NavigationDrawerContactUsFragment extends android.support.v4.app.Fr
 
     public static List<ContactRecyclerInformation> getData() {
         List<ContactRecyclerInformation> data = new ArrayList<>();
-        String[] Name = {"Rishabh", "Pallavi", "Harsh", "Aishvary"};
-        String[] Address = {"Kanpur", "Kanpur", "Meerut", "No Destination"};
+        String[] Name = {"Siddhartha Tyagi", "Prateek Kapil", "Shivam Tyagi", "Mohan Bansal"};
+        String[] Address = {"Founder", "Co-Founder", "Co-Founder", "Co-Founder"};
+        int[] images = {R.mipmap.siddhartha_tyagi, R.mipmap.prateek_kapil, R.mipmap.shivam_tyagi, R.mipmap.mohan_banal};
 
         for (int i = 0; i < Name.length && i < Address.length; i++) {
             ContactRecyclerInformation current = new ContactRecyclerInformation();
             current.Name = Name[i];
             current.Address = Address[i];
+            current.imgPhoto = images[i];
             data.add(current);
         }
         return data;

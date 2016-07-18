@@ -54,7 +54,7 @@ public class NavigationDrawerMyProfileFragment extends android.support.v4.app.Fr
     public static List<ProfileRecyclerInformation> getData() {
         List<ProfileRecyclerInformation> data = new ArrayList<>();
         String[] attributes = {"Name", "Phone No.", "Email", "Address", "City", "PIN"};
-        String[] values = {"Harsh Deep Singh", "7895052263", "harshdeep18894@gmail.com", "L.L.R.M Medical College", "Meerut", "250004"};
+        String[] values = {"", "", "", "", "", ""};
 
         for (int i = 0; i < attributes.length && i < values.length; i++) {
             ProfileRecyclerInformation current = new ProfileRecyclerInformation();

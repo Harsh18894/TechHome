@@ -11,7 +11,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import com.neopixl.pixlui.components.edittext.EditText;
 import com.techHome.R;
+import com.techHome.dto.OrderDTO;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -35,6 +37,8 @@ Declaring and intialising the variables..
     MaterialSpinner materialSpinner;
     @Bind(R.id.btnSubmit)
     Button btnNext;
+    @Bind(R.id.etIssueDescription)
+    EditText etIssueDescription;
     private String[] appliances;
     private DrawerLayout drawerLayout;
     private Context context;
@@ -72,34 +76,13 @@ Declaring and intialising the variables..
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-          /*      final AlertDialog.Builder builder = new AlertDialog.Builder(AppliancesActivity.this);
-                builder.setTitle("Confirmation");
-                TextView textView = new TextView(AppliancesActivity.this);
-                textView.setText("Click OK to confirm your order.");
-                textView.setGravity(Gravity.CENTER);
-                textView.setPadding(15, 50, 15, 15);
-                textView.setTextSize(18);
-                builder.setView(textView);
-
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(AppliancesActivity.this, DashboardActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putString("done", "done");
-                        intent.putExtras(bundle);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
-
-                builder.setNegativeButton("Cancel", null);
-                builder.show();
-*/
-
+                OrderDTO orderDTO = new OrderDTO();
+                orderDTO.setCategory(materialSpinner.getSelectedItem().toString());
+                orderDTO.setDescription(etIssueDescription.getText().toString());
                 Intent intent = new Intent(AppliancesActivity.this, AppliancesActivityFinalSelection.class);
                 startActivityForResult(intent, 0);
             }
+
         });
     }
 

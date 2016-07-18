@@ -59,32 +59,6 @@ public class DashboardFragment extends android.support.v4.app.Fragment {
         dashboardRecyclerView.setAdapter(adapter);
         dashboardRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
-        /*GridAdapter adapter = new GridAdapter(getActivity(), options);
-        gridView.setAdapter(adapter);*/
-
-        //setting up on click listener in gridview
-        /*gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                switch (options[position]) {
-                    case "Appliances":
-                        startActivity(new Intent(getActivity(), AppliancesActivity.class));
-                        break;
-                    *//*case "Electrical":
-                        startActivity(new Intent(getActivity(), ElectricalActivity.class));
-                        break;*//*
-                    case "Wiring":
-                        startActivity(new Intent(getActivity(), WiringActivity.class));
-                        break;
-                    case "Plumbing":
-                        startActivity(new Intent(getActivity(), PlumbingActivity.class));
-                        break;
-                }
-            }
-
-        });*/
     }
 
     public static List<DashboardRecyclerInformation> getData() {

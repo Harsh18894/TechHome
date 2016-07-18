@@ -57,7 +57,17 @@ public class NavigationDrawerAboutUsFragment extends android.support.v4.app.Frag
     public static List<AboutUsRecyclerInformation> getData() {
         List<AboutUsRecyclerInformation> data = new ArrayList<>();
         String[] attributes = {"What are we?", "Why TechHome?", "Which services do we provide?", "Address"};
-        String[] values = {"We, at TechHome, provide servicing needs for all the household daily use equipment right at your door step. Currently we provide the repair and install of Electrical appliances and Plumbing services only. Our highly efficient workmanship is dedicated towards providing services in the promised time. We understand the worth of your hard earned money and costly appliances, so we never compromise with quality. TechHome will provide 7 days after service guarantee too.", "Among all the other service providers present in the market, TechHome, with its highly skilled and experienced workforce distinctively stands out. Our dealers are certified and selected workers are tested on various measures before they are finally recruited. We provide services at competitive lower rates than others with best in class quality and high precision.", "Currently we provide the repair for the electrical and plumbing equipment. For now, we are mainly focusing on these categories. As a rapidly growing firm, we are planning to launch our services in other categories very soon."};
+        String[] values = {"We, at TechHome, provide servicing needs for all the household daily use equipment right at your door step. " +
+                "Currently we provide the repair and install of Electrical appliances and Plumbing services only. " +
+                "Our highly efficient workmanship is dedicated towards providing services in the promised time." +
+                " We understand the worth of your hard earned money and costly appliances, so we never compromise with quality. " +
+                "TechHome will provide 7 days after service guarantee too.", "Among all the other service providers present in the market," +
+                " TechHome, with its highly skilled and experienced workforce distinctively stands out. " +
+                "Our dealers are certified and selected workers are tested on various measures before they are finally recruited. " +
+                "We provide services at competitive lower rates than others with best in class quality and high precision.",
+                "Currently we provide the repair for the electrical and plumbing equipment. " +
+                "For now, we are mainly focusing on these categories. As a rapidly growing firm, " +
+                        "we are planning to launch our services in other categories very soon."};
 
         for (int i = 0; i < attributes.length && i < values.length; i++) {
             AboutUsRecyclerInformation current = new AboutUsRecyclerInformation();

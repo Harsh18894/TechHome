@@ -6,13 +6,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".global.GlobalData"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         tools:replace="android:icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name="android.support.multidex.MultiDexApplication">
+        android:theme="@style/AppTheme">
 
         <activity
             android:name=".activities.SplashActivity"
@@ -88,7 +88,7 @@
         </activity>
 
 
-        <activity android:name=".activities.AppliancesActivityFinalSelection"
+        <activity android:name=".activities.PlaceOrderActivity"
             android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.AppliancesActivity"/>
         </activity>

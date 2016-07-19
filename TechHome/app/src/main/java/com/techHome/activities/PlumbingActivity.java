@@ -63,7 +63,7 @@ public class PlumbingActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PlumbingActivity.this, AppliancesActivityFinalSelection.class);
+                Intent intent = new Intent(PlumbingActivity.this, PlaceOrderActivity.class);
                 startActivityForResult(intent, 0);
             }
             });

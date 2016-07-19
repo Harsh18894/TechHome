@@ -141,12 +141,14 @@ public class DashboardActivity extends AppCompatActivity {
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle(R.string.rate_card);
                         return true;
+/*
                     case R.id.settings:
                         NavigationDrawerSettingsFragment navigationDrawerSettingsFragment = new NavigationDrawerSettingsFragment();
                         fragmentTransaction.replace(R.id.frame, navigationDrawerSettingsFragment);
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle(R.string.settings);
                         return true;
+*/
                     case R.id.about_us:
                         NavigationDrawerAboutUsFragment navigationDrawerAboutUsFragment = new NavigationDrawerAboutUsFragment();
                         fragmentTransaction.replace(R.id.frame, navigationDrawerAboutUsFragment);

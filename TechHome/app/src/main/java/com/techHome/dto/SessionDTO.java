@@ -52,7 +52,7 @@ public class SessionDTO {
     }
 
     public String toString() {
-        return "SeesionDTO [name = " + name + ", email = " + email + ", mobile = " + mobile + ", address = " + address + ", accessToken = " + accessTokenId + "]";
+        return "SessionDTO [name = " + name + ", email = " + email + ", mobile = " + mobile + ", address = " + address + ", accessToken = " + accessTokenId + "]";
     }
 
 }

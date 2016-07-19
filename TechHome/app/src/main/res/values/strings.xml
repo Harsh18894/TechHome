@@ -70,7 +70,7 @@
     <string name="no_internet_title">Network Error</string>
     <string name="ok">OK</string>
     <string name="oops">Oops!!</string>
-    <string name="error_message">Some Unexpected Error has Occured</string>
+    <string name="error_message">Some Unexpected Error has Occurred</string>
     <string name="login_activity_invalid_password_title">Invalid Password</string>
     <string name="login_activity_invalid_password">Password cannot be blank.</string>
     <string name="login_activity_invalid_phone_title">Invalid Phone Number</string>

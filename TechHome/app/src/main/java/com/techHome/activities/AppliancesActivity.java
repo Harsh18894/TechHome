@@ -72,15 +72,14 @@ Declaring and intialising the variables..
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         materialSpinner.setAdapter(adapter);
 
-        //button to navigate to main page confirming the choice
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 OrderDTO orderDTO = new OrderDTO();
                 orderDTO.setCategory(materialSpinner.getSelectedItem().toString());
                 orderDTO.setDescription(etIssueDescription.getText().toString());
-                Intent intent = new Intent(AppliancesActivity.this, AppliancesActivityFinalSelection.class);
-                startActivityForResult(intent, 0);
+                Intent intent = new Intent(AppliancesActivity.this, PlaceOrderActivity.class);
+                startActivity(intent);
             }
 
         });
@@ -103,4 +102,5 @@ Declaring and intialising the variables..
         finish();
 
     }
+
 }

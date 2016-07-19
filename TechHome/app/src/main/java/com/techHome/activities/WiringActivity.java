@@ -11,7 +11,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import com.neopixl.pixlui.components.edittext.EditText;
 import com.techHome.R;
+import com.techHome.dto.OrderDTO;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,6 +35,8 @@ public class WiringActivity extends AppCompatActivity {
     private String[] wiring;
     @Bind(R.id.btnSubmit)
     Button btnNext;
+    @Bind(R.id.etIssueDescription)
+    EditText etIssueDescription;
     private DrawerLayout drawerLayout;
     private Context context;
 
@@ -65,9 +69,15 @@ public class WiringActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                OrderDTO orderDTO = new OrderDTO();
+                orderDTO.setCategory(materialSpinner.getSelectedItem().toString());
+                orderDTO.setDescription(etIssueDescription.getText().toString());
                 Intent intent = new Intent(WiringActivity.this, PlaceOrderActivity.class);
-                startActivityForResult(intent, 0);}
+                startActivity(intent);
+            }
+
         });
+
     }
 
     @Override

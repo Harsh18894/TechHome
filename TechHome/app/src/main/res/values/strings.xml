@@ -83,6 +83,8 @@
     <string name="passwords_didnt_match">Passwords Didn\'t Match</string>
     <string name="blank_fields_title">Blank Fields</string>
     <string name="blank_fields">Mandatory Fields shouldn\'t be blank.</string>
+    <string name="success">Successful</string>
+    <string name="order_success">Your Order has been placed.</string>
 
 
     <string-array name="appliance_issue">

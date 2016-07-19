@@ -24,6 +24,7 @@ import android.view.View;
 
 import com.neopixl.pixlui.components.textview.TextView;
 import com.techHome.R;
+import com.techHome.dto.MessageCustomDialogDTO;
 import com.techHome.fragments.DashboardFragment;
 import com.techHome.fragments.NavigationDrawerAboutUsFragment;
 import com.techHome.fragments.NavigationDrawerContactUsFragment;
@@ -34,6 +35,7 @@ import com.techHome.fragments.NavigationDrawerMyProfileFragment;
 import com.techHome.fragments.NavigationDrawerOffersFragment;
 import com.techHome.fragments.NavigationDrawerRatesFragment;
 import com.techHome.fragments.NavigationDrawerSettingsFragment;
+import com.techHome.ui.SnackBar;
 import com.techHome.util.Logout;
 
 import butterknife.Bind;
@@ -84,8 +86,12 @@ public class DashboardActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (null != bundle) {
             if (bundle.containsKey("done") && bundle.getString("done").equals("done")) {
-                Snackbar snackbar = Snackbar.make(drawer_layout, "Your Order has been Placed.", Snackbar.LENGTH_LONG);
-                snackbar.show();
+                MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
+                messageCustomDialogDTO.setTitle(getResources().getString(R.string.success));
+                messageCustomDialogDTO.setMessage(getResources().getString(R.string.order_success));
+                messageCustomDialogDTO.setButton(getResources().getString(R.string.ok));
+                messageCustomDialogDTO.setContext(DashboardActivity.this);
+                SnackBar.show(DashboardActivity.this, messageCustomDialogDTO);
             }
         }
 

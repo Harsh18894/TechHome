@@ -1,9 +1,10 @@
 package com.techHome.asynctasks;
 
-import java.io.IOException; 
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.techHome.R;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -14,82 +15,92 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class HitJSPService extends AsyncTask<Void, Void, String> {
-	private static final String TAG = "FN-HITPHP";
-	Context con;
-	List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-	String methodName = "";
-	TaskCompleted taskCompleted;
-	int resultType;
-	ProgressDialog dialog;
+    private static final String TAG = "FN-HITPHP";
+    Context con;
+    List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+    String methodName = "";
+    TaskCompleted taskCompleted;
+    int resultType;
+    SweetAlertDialog dialog;
 
-	public HitJSPService(Context con, List<NameValuePair> pairs,
-			TaskCompleted taskCompleted, String methodName, int resultType) {
-		// TODO Auto-generated constructor stub
-		this.con = con;
-		this.pairs = pairs;
+    public HitJSPService(Context con, List<NameValuePair> pairs,
+                         TaskCompleted taskCompleted, String methodName, int resultType) {
+        // TODO Auto-generated constructor stub
+        this.con = con;
+        this.pairs = pairs;
         try {
-            dialog = new ProgressDialog(con);
-        }catch (Exception e){}
-		this.methodName = methodName;
-		this.taskCompleted = taskCompleted;
-		this.resultType = resultType;
+            dialog = new SweetAlertDialog(con, SweetAlertDialog.PROGRESS_TYPE);
+            dialog.getProgressHelper().setBarColor(con.getResources().getColor(R.color.colorPrimary));
+            dialog.setTitleText("Loading...");
+            dialog.setCancelable(false);
+        } catch (Exception e) {
+        }
+        this.methodName = methodName;
+        this.taskCompleted = taskCompleted;
+        this.resultType = resultType;
 
-	}
-	protected void onPreExecute() {
-		// called before doInBackground() is started
+    }
+
+    protected void onPreExecute() {
+        // called before doInBackground() is started
         try {
             if (!dialog.isShowing()) {
                 dialog.show();
             }
-        }catch (Exception e){}
-	}
-	protected String doInBackground(Void... s) {
-		// Create a new HttpClient and Post Header
-		String resp = "";
-		HttpClient client = new DefaultHttpClient();
-		String postURL = (methodName);
-		Log.i(TAG, postURL);
-		HttpPost post = new HttpPost(postURL);
-		try {
-			if (pairs != null) {
-				UrlEncodedFormEntity uefe = new UrlEncodedFormEntity(pairs);
-				post.setEntity(uefe);
-			}
-			HttpResponse response = client.execute(post);
-			HttpEntity resEntity = response.getEntity();
-			if (resEntity != null) {
-				resp = EntityUtils.toString(resEntity);
-				Log.i(TAG, resp);
-			}
-		} catch (UnsupportedEncodingException uee) {
-			uee.printStackTrace();
-		} catch (ClientProtocolException cpe) {
-			cpe.printStackTrace();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-		return resp;
-	}
+        } catch (Exception e) {
+        }
+    }
 
-	protected void onPostExecute(String s) {
-		// called after doInBackground() has finished
+    protected String doInBackground(Void... s) {
+        // Create a new HttpClient and Post Header
+        String resp = "";
+        HttpClient client = new DefaultHttpClient();
+        String postURL = (methodName);
+        Log.i(TAG, postURL);
+        HttpPost post = new HttpPost(postURL);
+        try {
+            if (pairs != null) {
+                UrlEncodedFormEntity uefe = new UrlEncodedFormEntity(pairs);
+                post.setEntity(uefe);
+            }
+            HttpResponse response = client.execute(post);
+            HttpEntity resEntity = response.getEntity();
+            if (resEntity != null) {
+                resp = EntityUtils.toString(resEntity);
+                Log.i(TAG, resp);
+            }
+        } catch (UnsupportedEncodingException uee) {
+            uee.printStackTrace();
+        } catch (ClientProtocolException cpe) {
+            cpe.printStackTrace();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        return resp;
+    }
+
+    protected void onPostExecute(String s) {
+        // called after doInBackground() has finished
         try {
             if (dialog.isShowing()) {
                 dialog.dismiss();
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
         try {
             if (taskCompleted != null) {
                 taskCompleted.onTaskCompleted(s, resultType);
             }
-        }catch (Exception e){}
-	}
+        } catch (Exception e) {
+        }
+    }
 }

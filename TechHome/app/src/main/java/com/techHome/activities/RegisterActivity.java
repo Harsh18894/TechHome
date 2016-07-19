@@ -13,15 +13,10 @@ import android.widget.Toast;
 import com.neopixl.pixlui.components.edittext.EditText;
 import com.techHome.R;
 import com.techHome.asynctasks.HitJSPService;
-import com.techHome.asynctasks.RegisterAsyncTask;
 import com.techHome.asynctasks.TaskCompleted;
 import com.techHome.dto.MessageCustomDialogDTO;
-import com.techHome.dto.RegisterDTO;
 import com.techHome.ui.SnackBar;
 import com.techHome.util.NetworkCheck;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -125,7 +120,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-
     private void register() {
         try {
             new HitJSPService(this, null, new TaskCompleted() {
@@ -133,11 +127,10 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onTaskCompleted(String result, int resultType) {
                     try {
-                        if(result.trim().equals("successfully registered")) {
-                            Intent i = new Intent(RegisterActivity.this,DashboardActivity.class);
+                        if (result.trim().equals("successfully registered")) {
+                            Intent i = new Intent(RegisterActivity.this, DashboardActivity.class);
                             startActivity(i);
-                        }
-                        else {
+                        } else {
                             Toast.makeText(getApplicationContext(), "Try Again", Toast.LENGTH_SHORT).show();
                         }
                     } catch (Exception e) {
@@ -146,10 +139,12 @@ public class RegisterActivity extends AppCompatActivity {
                     }
 
                 }
-            }, "http://techhome.net16.net/registration.php?name=" + etName.getText().toString().trim() + "&mobile=" + etPhoneNumber.getText().toString().trim()+ "&email=" + etEmail.getText().toString().trim()
-                    + "&address=" + etAddress.getText().toString().trim()+ "&city=" + etCity.getText().toString().trim()
-                    + "&pincode=" + etPinCode.getText().toString().trim()+ "&password=" + etPassword.getText().toString().trim(), 1).execute();
-        }catch (Exception e){ Toast.makeText(getApplicationContext(), "Invalid character found", Toast.LENGTH_SHORT).show();}
+            }, "http://techhome.net16.net/registration.php?name=" + etName.getText().toString().trim() + "&mobile=" + etPhoneNumber.getText().toString().trim() + "&email=" + etEmail.getText().toString().trim()
+                    + "&address=" + etAddress.getText().toString().trim() + "&city=" + etCity.getText().toString().trim()
+                    + "&pincode=" + etPinCode.getText().toString().trim() + "&password=" + etPassword.getText().toString().trim(), 1).execute();
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Invalid character found", Toast.LENGTH_SHORT).show();
+        }
     }
-    }
+}
 

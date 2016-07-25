@@ -50,7 +50,7 @@ public class ContactRecyclerAdapter extends RecyclerView.Adapter<ContactRecycler
                 exception.printStackTrace();
             }
         }).build();
-        picasso.load(data.get(position).getImgPhoto()).placeholder(R.mipmap.ic_time_black).fit().centerInside().into(holder.imgPhoto);
+        picasso.load(data.get(position).getImgPhoto()).placeholder(R.mipmap.ic_time_black).error(R.drawable.no_image).fit().centerInside().into(holder.imgPhoto);
        }
 
     @Override

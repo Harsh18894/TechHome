@@ -58,7 +58,7 @@ public class DashboardRecyclerAdapter extends RecyclerView.Adapter<DashboardRecy
                 exception.printStackTrace();
             }
         }).build();
-        picasso.load(data.get(position).getIconId()).placeholder(R.mipmap.ic_time_black).fit().centerInside().into(holder.imgRecyclerIcon);
+        picasso.load(data.get(position).getIconId()).placeholder(R.mipmap.ic_time_black).error(R.drawable.no_image).fit().centerInside().into(holder.imgRecyclerIcon);
 
     }
 

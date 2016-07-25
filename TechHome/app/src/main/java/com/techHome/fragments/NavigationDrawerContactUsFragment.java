@@ -29,6 +29,10 @@ public class NavigationDrawerContactUsFragment extends android.support.v4.app.Fr
     private ContactRecyclerAdapter adapter;
     private View parentView;
 
+    private final int[] names = {R.string.siddhartha, R.string.mohan, R.string.prateek, R.string.shivam};
+    private final int[] pos = {R.string.sid_pos, R.string.mohan_pos, R.string.prateek_pos, R.string.shivam_pos};
+    private final String[] images = {"http://techhome.net16.net/static/siddhartha_tyagi.jpg", "http://techhome.net16.net/static/mohan_banal.jpg", "http://techhome.net16.net/static/prateek_kapil.jpg", "http://techhome.net16.net/static/shivam_tyagi.jpg"};
+
 
 
     public NavigationDrawerContactUsFragment() {
@@ -52,18 +56,15 @@ public class NavigationDrawerContactUsFragment extends android.support.v4.app.Fr
         contactRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
 
-    public static List<ContactRecyclerInformation> getData() {
+    public List<ContactRecyclerInformation> getData() {
         List<ContactRecyclerInformation> data = new ArrayList<>();
-        String[] Name = {"Siddhartha Tyagi", "Prateek Kapil", "Shivam Tyagi", "Mohan Bansal"};
-        String[] Address = {"Founder", "Co-Founder", "Co-Founder", "Co-Founder"};
-        int[] images = {R.mipmap.siddhartha_tyagi, R.mipmap.prateek_kapil, R.mipmap.shivam_tyagi, R.mipmap.mohan_banal};
 
-        for (int i = 0; i < Name.length && i < Address.length; i++) {
-            ContactRecyclerInformation current = new ContactRecyclerInformation();
-            current.Name = Name[i];
-            current.Address = Address[i];
-            current.imgPhoto = images[i];
-            data.add(current);
+        for (int i = 0; i < names.length && i < pos.length; i++) {
+            ContactRecyclerInformation contactRecyclerInformation = new ContactRecyclerInformation();
+            contactRecyclerInformation.setName(names[i]);
+            contactRecyclerInformation.setPos(pos[i]);
+            contactRecyclerInformation.setImgPhoto(images[i]);
+            data.add(contactRecyclerInformation);
         }
         return data;
     }

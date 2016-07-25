@@ -37,7 +37,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -46,7 +45,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 /**
  * Created by Dell on 5/15/2016.
  */
-public class RegisterAsyncTask extends AsyncTask<String , String, Void> implements NetworkConstants, TechHome {
+public class RegisterAsyncTask extends AsyncTask<String, String, Void> implements NetworkConstants, TechHome {
 
     private RegisterDTO registerDTO;
     private Context context;
@@ -59,23 +58,23 @@ public class RegisterAsyncTask extends AsyncTask<String , String, Void> implemen
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor sharedEditor;
 
-    public RegisterAsyncTask(RegisterDTO registerDTO, final Context context){
+    public RegisterAsyncTask(RegisterDTO registerDTO, final Context context) {
         this.registerDTO = registerDTO;
         this.context = context;
       /*  ResourceBundle rb = ResourceBundle.getBundle("network");
         ip = rb.getString("ip");
 */
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(((Activity)this.context).getBaseContext());
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(((Activity) this.context).getBaseContext());
         sharedEditor = sharedPreferences.edit();
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 pDialog.dismiss();
                 this.cancel();
-                ((Activity)context).runOnUiThread(new Runnable() {
+                ((Activity) context).runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (null != context && RegisterAsyncTask.this.isCancelled()){
+                        if (null != context && RegisterAsyncTask.this.isCancelled()) {
                             MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
                             messageCustomDialogDTO.setTitle(context.getResources().getString(R.string.oops));
                             messageCustomDialogDTO.setMessage(context.getResources().getString(R.string.error_message));
@@ -120,9 +119,9 @@ public class RegisterAsyncTask extends AsyncTask<String , String, Void> implemen
         list.add(new BasicNameValuePair("pincode", registerDTO.getPincode()));
         list.add(new BasicNameValuePair("password", registerDTO.getPassword()));
 
-        try{
+        try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost(GET_NETWORK_IP + LOGIN_URL);
+            HttpPost httpPost = new HttpPost(GET_NETWORK_IP + REGISTRATION_URL);
 
             httpPost.setEntity(new UrlEncodedFormEntity(list));
             HttpResponse httpResponse = httpClient.execute(httpPost);
@@ -137,7 +136,7 @@ public class RegisterAsyncTask extends AsyncTask<String , String, Void> implemen
             result = stringBuilder.toString();
         } catch (Exception e) {
             RegisterAsyncTask.this.cancel(true);
-            Toast.makeText(context.getApplicationContext().getApplicationContext(), "Exception : " +e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(context.getApplicationContext().getApplicationContext(), "Exception : " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
         return null;
@@ -147,8 +146,8 @@ public class RegisterAsyncTask extends AsyncTask<String , String, Void> implemen
     protected void onPostExecute(Void aVoid) {
         pDialog.dismiss();
         Log.d("log", result);
-        try{
-            if (result.equals("true")){
+        try {
+            if (result.equals("true")) {
                 sessionDTO = new SessionDTO();
                 JSONArray jsonArray = new JSONArray(result);
                 JSONObject jsonObject = jsonArray.getJSONObject(0);
@@ -174,9 +173,9 @@ public class RegisterAsyncTask extends AsyncTask<String , String, Void> implemen
                 sharedEditor.commit();
                 Intent intent = new Intent(context, DashboardActivity.class);
                 context.startActivity(intent);
-                ((Activity)context).finish();
+                ((Activity) context).finish();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
             messageCustomDialogDTO.setTitle(context.getResources().getString(R.string.oops));

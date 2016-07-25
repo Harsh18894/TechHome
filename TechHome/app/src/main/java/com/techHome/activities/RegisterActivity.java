@@ -5,21 +5,35 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.neopixl.pixlui.components.edittext.EditText;
 import com.techHome.R;
-import com.techHome.asynctasks.HitJSPService;
-import com.techHome.asynctasks.TaskCompleted;
+import com.techHome.constants.NetworkConstants;
 import com.techHome.dto.MessageCustomDialogDTO;
+import com.techHome.dto.RegisterDTO;
+import com.techHome.global.AppController;
 import com.techHome.ui.SnackBar;
 import com.techHome.util.NetworkCheck;
+import com.techHome.util.SessionManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
  * Created by Dell on 4/14/2016.
@@ -49,6 +63,9 @@ public class RegisterActivity extends AppCompatActivity {
     Button btnRegister;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
+    private static final String TAG = RegisterActivity.class.getSimpleName();
+    private SweetAlertDialog dialog;
+    private SessionManager sessionManager;
 
 
     @Override
@@ -75,6 +92,17 @@ public class RegisterActivity extends AppCompatActivity {
             btnRegister.setBackgroundResource(R.drawable.ripple);
         }
 
+        dialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        dialog.setCancelable(false);
+
+        sessionManager = new SessionManager(getApplicationContext());
+
+        if (sessionManager.isLoggedIn()) {
+            Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +110,17 @@ public class RegisterActivity extends AppCompatActivity {
                     if (NetworkCheck.isNetworkAvailable(RegisterActivity.this)) {
                         if (etPhoneNumber.getText().length() == 10) {
                             if (etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
-                                register();
+                                RegisterDTO registerDTO = new RegisterDTO();
+                                registerDTO.setName(etName.getText().toString());
+                                registerDTO.setEmail(etEmail.getText().toString());
+                                registerDTO.setMobile(etPhoneNumber.getText().toString());
+                                registerDTO.setAddress(etAddress.getText().toString());
+                                registerDTO.setCity(etCity.getText().toString());
+                                registerDTO.setPincode(etPinCode.getText().toString());
+                                registerDTO.setPassword(etPassword.getText().toString());
+                                registerUser(etName.getText().toString(), etEmail.getText().toString(), etPhoneNumber.getText().toString(), etAddress.getText().toString(),
+                                        etCity.getText().toString(), etPinCode.getText().toString(), etPassword.getText().toString());
+                                //register();
                             } else {
                                 MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
                                 messageCustomDialogDTO.setTitle(getResources().getString(R.string.passwords_didnt_match_title));
@@ -120,6 +158,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
+/*
     private void register() {
         try {
             new HitJSPService(this, null, new TaskCompleted() {
@@ -145,6 +184,90 @@ public class RegisterActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Invalid character found", Toast.LENGTH_SHORT).show();
         }
+    }
+*/
+
+
+    private void registerUser(final String name, final String email,
+                              final String mobile, final String address, final String city, final String pincode, final String password) {
+        // Tag used to cancel the request
+        String tag_string_req = "req_register";
+
+        dialog.setTitle("Registering ...");
+        dialog.getProgressHelper().setBarColor(getResources().getColor(R.color.colorPrimary));
+        dialog.setTitleText("Registering...");
+        showDialog();
+
+        StringRequest strReq = new StringRequest(Request.Method.POST, NetworkConstants.REGISTRATION_URL, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "Register Response: " + response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    boolean error = jObj.getBoolean("error");
+                    if (!error) {
+
+                        Toast.makeText(getApplicationContext(), "User successfully registered. Try login now!", Toast.LENGTH_LONG).show();
+
+                        // Launch login activity
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+
+                        // Error occurred in registration. Get the error
+                        // message
+                        String errorMsg = jObj.getString("error_msg");
+                        Toast.makeText(getApplicationContext(),
+                                errorMsg, Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Registration Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                hideDialog();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting params to register url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("name", name);
+                params.put("email", email);
+                params.put("mobile", mobile);
+                params.put("address", address);
+                params.put("city", city);
+                params.put("pincode", pincode);
+                params.put("password", password);
+                return params;
+            }
+
+        };
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+    }
+
+    private void showDialog() {
+        if (!dialog.isShowing())
+            dialog.show();
+    }
+
+    private void hideDialog() {
+        if (dialog.isShowing())
+            dialog.dismiss();
     }
 }
 

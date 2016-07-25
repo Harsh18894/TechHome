@@ -2,6 +2,7 @@ package com.techHome.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +11,14 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.neopixl.pixlui.components.textview.TextView;
+import com.squareup.picasso.Picasso;
 import com.techHome.R;
 import com.techHome.activities.AppliancesActivity;
 import com.techHome.activities.DashboardActivity;
 import com.techHome.activities.PlumbingActivity;
 import com.techHome.activities.WiringActivity;
 import com.techHome.constants.DashboardRecyclerInformation;
+import com.techHome.util.ImageLoader;
 
 import java.util.Collections;
 import java.util.List;
@@ -48,8 +51,14 @@ public class DashboardRecyclerAdapter extends RecyclerView.Adapter<DashboardRecy
 
         DashboardRecyclerInformation current = data.get(position);
         holder.txtRecyclerTitle.setText(current.title);
-        holder.imgRecyclerIcon.setImageResource(current.iconId);
         holder.txtTitleDescription.setText(current.desc);
+        Picasso picasso = new Picasso.Builder(context).listener(new Picasso.Listener() {
+            @Override
+            public void onImageLoadFailed(Picasso picasso, Uri uri, Exception exception) {
+                exception.printStackTrace();
+            }
+        }).build();
+        picasso.load(data.get(position).getIconId()).placeholder(R.mipmap.ic_time_black).fit().centerInside().into(holder.imgRecyclerIcon);
 
     }
 

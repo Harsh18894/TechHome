@@ -122,4 +122,27 @@
         <item>5:30 pm - 8:00 pm</item>
     </string-array>
 
+    <string name="appliances_dashboard">Appliances</string>
+    <string name="plumbing_dashboard">Plumbing</string>
+    <string name="wiring_dashboard">Wiring</string>
+    <string name="appliances_desc">Let us take care of your applicances</string>
+    <string name="wiring_desc">Get your Wiring fixed</string>
+    <string name="plumbing_desc">Don\'t let those pipes leak</string>
+    <string name="image_appliances">http://techhome.net16.net/static/history.png</string>
+    <string name="image_wiring">http://techhome.net16.net/static/wiring.png</string>
+    <string name="image_plumbing">http://techhome.net16.net/static/plumbing.png</string>
+    <string name="image_siddhartha">http://techhome.net16.net/static/siddhartha_tyagi.jpg</string>
+    <string name="image_mohan">http://techhome.net16.net/static/mohan_banal.jpg</string>
+    <string name="image_prateek">http://techhome.net16.net/static/prateek_kapil.jpg</string>
+    <string name="image_shivam">http://techhome.net16.net/static/shivam_tyagi.jpg</string>
+    <string name="siddhartha">Siddhartha Tyagi</string>
+    <string name="sid_pos">Founder and CEO</string>
+    <string name="mohan">Mohan Bansal</string>
+    <string name="mohan_pos">Co-Founder</string>
+    <string name="prateek_pos">Co-Founder</string>
+    <string name="shivam_pos">Co-Founder</string>
+    <string name="prateek">Prateek Kapil</string>
+    <string name="shivam">Shivam Tyagi</string>
+
+
 </resources>

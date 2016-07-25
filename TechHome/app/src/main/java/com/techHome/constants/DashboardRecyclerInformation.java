@@ -5,8 +5,31 @@ package com.techHome.constants;
  */
 public class DashboardRecyclerInformation {
 
-   public int iconId;
-   public String title;
-   public String desc;
+    public String iconId;
+    public int title;
+    public int desc;
 
+    public String getIconId() {
+        return iconId;
+    }
+
+    public void setIconId(String iconId) {
+        this.iconId = iconId;
+    }
+
+    public int getTitle() {
+        return title;
+    }
+
+    public void setTitle(int title) {
+        this.title = title;
+    }
+
+    public int getDesc() {
+        return desc;
+    }
+
+    public void setDesc(int desc) {
+        this.desc = desc;
+    }
 }

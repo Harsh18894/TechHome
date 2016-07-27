@@ -1,8 +1,11 @@
 package com.techHome.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -66,12 +69,14 @@ public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = RegisterActivity.class.getSimpleName();
     private SweetAlertDialog dialog;
     private SessionManager sessionManager;
+    private SharedPreferences preferences;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        preferences = getSharedPreferences("AndroidLogin", Context.MODE_PRIVATE);
         populate();
     }
 
@@ -120,7 +125,6 @@ public class RegisterActivity extends AppCompatActivity {
                                 registerDTO.setPassword(etPassword.getText().toString());
                                 registerUser(etName.getText().toString(), etEmail.getText().toString(), etPhoneNumber.getText().toString(), etAddress.getText().toString(),
                                         etCity.getText().toString(), etPinCode.getText().toString(), etPassword.getText().toString());
-                                //register();
                             } else {
                                 MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
                                 messageCustomDialogDTO.setTitle(getResources().getString(R.string.passwords_didnt_match_title));
@@ -158,36 +162,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-/*
-    private void register() {
-        try {
-            new HitJSPService(this, null, new TaskCompleted() {
-
-                @Override
-                public void onTaskCompleted(String result, int resultType) {
-                    try {
-                        if (result.trim().equals("successfully registered")) {
-                            Intent i = new Intent(RegisterActivity.this, DashboardActivity.class);
-                            startActivity(i);
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Try Again", Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (Exception e) {
-                        // TODO: handle exception
-                        Toast.makeText(getApplicationContext(), "Try Again", Toast.LENGTH_SHORT).show();
-                    }
-
-                }
-            }, "http://techhome.net16.net/registration.php?name=" + etName.getText().toString().trim() + "&mobile=" + etPhoneNumber.getText().toString().trim() + "&email=" + etEmail.getText().toString().trim()
-                    + "&address=" + etAddress.getText().toString().trim() + "&city=" + etCity.getText().toString().trim()
-                    + "&pincode=" + etPinCode.getText().toString().trim() + "&password=" + etPassword.getText().toString().trim(), 1).execute();
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Invalid character found", Toast.LENGTH_SHORT).show();
-        }
-    }
-*/
-
-
     private void registerUser(final String name, final String email,
                               final String mobile, final String address, final String city, final String pincode, final String password) {
         // Tag used to cancel the request
@@ -212,10 +186,15 @@ public class RegisterActivity extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(), "User successfully registered. Try login now!", Toast.LENGTH_LONG).show();
 
-                        // Launch login activity
-                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        // Launch main activity
+                        sessionManager.setLogin(true);
+                        JSONObject jsonObject = jObj.getJSONObject("user");
+                        preferences.edit().putString("name", jsonObject.getString("name")).commit();
+                        preferences.edit().putString("mobile", jsonObject.getString("mobile")).commit();
+                        Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
-                        finish();
+                        ActivityCompat.finishAffinity(RegisterActivity.this);
                     } else {
 
                         // Error occurred in registration. Get the error

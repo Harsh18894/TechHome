@@ -1,8 +1,11 @@
 package com.techHome.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -56,11 +59,13 @@ public class LoginActivity extends AppCompatActivity {
     private SessionManager sessionManager;
     private SweetAlertDialog dialog;
     private static final String TAG = LoginActivity.class.getSimpleName();
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        preferences = getSharedPreferences("AndroidLogin", Context.MODE_PRIVATE);
         populate();
     }
 
@@ -98,7 +103,6 @@ public class LoginActivity extends AppCompatActivity {
                             loginDTO.setMobile(etUsername.getText().toString().trim());
                             loginDTO.setPassword(etPassword.getText().toString().trim());
                             checkLogin(loginDTO.getMobile(), loginDTO.getPassword());
-                            //authenticate();
                         } else {
                             MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
                             messageCustomDialogDTO.setTitle(getResources().getString(R.string.login_activity_invalid_password_title));
@@ -126,51 +130,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-     /*   txtForgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
-            }
-        });*/
-
 
     }
-
-   /* public void authenticate() {
-        try {
-            new HitJSPService(this, null, new TaskCompleted() {
-
-                @Override
-                public void onTaskCompleted(String result, int resultType) {
-                    try {
-                        JSONObject jo = new JSONObject(result);
-                        JSONArray ja = jo.getJSONArray("result");
-                        JSONObject jo1 = ja.getJSONObject(0);
-                        sp.edit().putString("Name", jo1.getString("name")).commit();
-                        sp.edit().putString("Mobile", jo1.getString("mobile")).commit();
-                        sp.edit().putInt("Id", Integer.parseInt(jo1.getString("id"))).commit();
-                        sp.edit().putBoolean("isTrue", true).commit();
-                        Toast.makeText(getApplicationContext(), "Login Successfull", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(LoginActivity.this, DashboardActivity.class);
-                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(i);
-                    } catch (Exception e) {
-                        // TODO: handle exception
-                        Toast.makeText(getApplicationContext(), "Invalid Details.", Toast.LENGTH_SHORT).show();
-                    }
-
-                }
-            }, "http://techhome.net16.net/login.php?mobile=" + etUsername.getText().toString().trim() + "&password=" + etPassword.getText().toString().trim(), 1).execute();
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Invalid character found", Toast.LENGTH_SHORT).show();
-        }
-    }*/
 
 
     private void checkLogin(final String mobile, final String password) {
         // Tag used to cancel the request
         String tag_string_req = "req_login";
 
+        dialog.setTitleText("Logging in...");
+        dialog.getProgressHelper().setBarColor(getResources().getColor(R.color.colorPrimary));
         dialog.setTitle("Logging in ...");
         showDialog();
 
@@ -192,9 +161,13 @@ public class LoginActivity extends AppCompatActivity {
                         sessionManager.setLogin(true);
 
                         // Launch main activity
+                        JSONObject jsonObject = jObj.getJSONObject("user");
+                        preferences.edit().putString("name", jsonObject.getString("name")).commit();
+                        preferences.edit().putString("mobile", jsonObject.getString("mobile")).commit();
                         Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
-                        finish();
+                        ActivityCompat.finishAffinity(LoginActivity.this);
                     } else {
                         // Error in login. Get the error message
                         String errorMsg = jObj.getString("error_msg");

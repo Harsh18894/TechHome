@@ -31,7 +31,7 @@ public class NavigationDrawerContactUsFragment extends android.support.v4.app.Fr
 
     private final int[] names = {R.string.siddhartha, R.string.mohan, R.string.prateek, R.string.shivam};
     private final int[] pos = {R.string.sid_pos, R.string.mohan_pos, R.string.prateek_pos, R.string.shivam_pos};
-    private final String[] images = {"http://techhome.net16.net/static/siddhartha_tyagi.jpg", "http://techhome.net16.net/static/mohan_banal.jpg", "http://techhome.net16.net/static/prateek_kapil.jpg", "http://techhome.net16.net/static/shivam_tyagi.jpg"};
+    private final String[] images = {"http://techhome.net16.net/static/siddhartha_tyagi.jpg", "http://techhome.net16.net/static/mohan_bansal.jpg", "http://techhome.net16.net/static/prateek_kapil.jpg", "http://techhome.net16.net/static/shivam_tyagi.jpg"};
 
 
 

@@ -5,9 +5,9 @@ package com.techHome.constants;
  */
 public interface NetworkConstants {
 
-    String GET_NETWORK_IP = "http://192.168.137.1/android_login_api";
-    String LOGIN_URL = "http://techhome.net16.net/login.php";
-    String REGISTRATION_URL = "http://techhome.net16.net/register.php";
+    String GET_NETWORK_IP = "http://techhome.esy.es/";
+    String LOGIN_URL = GET_NETWORK_IP + "/login.php";
+    String REGISTRATION_URL = GET_NETWORK_IP + "/register.php";
     String PLACE_ORDER_URL = "";
 
 }

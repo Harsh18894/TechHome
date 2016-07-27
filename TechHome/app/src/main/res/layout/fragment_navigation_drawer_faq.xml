@@ -5,9 +5,45 @@
     android:orientation="vertical"
     tools:context="com.techHome.fragments.NavigationDrawerFAQFragment">
 
+
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryLight">
+
+        <TextView
+            android:id="@+id/txtFaqs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:text="@string/faqs"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPrimaryDarker"
+            android:textSize="24sp" />
+
+        <com.neopixl.pixlui.components.imageview.ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtFaqs"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dip"
+            android:layout_marginTop="8dp"
+            android:src="@mipmap/logo_temp" />
+    </RelativeLayout>
+
     <ExpandableListView
         android:id="@+id/lvExp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:padding="5dip"
+        android:transcriptMode="disabled"/>
 
 </LinearLayout>

@@ -5,13 +5,45 @@
     android:background="@color/white"
     tools:context="com.techHome.fragments.NavigationDrawerRatesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:alpha="0.3"
-        android:text="@string/rate_card"
-        android:textSize="40sp" />
+        android:background="@color/colorPrimaryLight">
+
+        <TextView
+            android:id="@+id/txtRates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:text="@string/rate_card"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPrimaryDarker"
+            android:textSize="24sp" />
+
+        <com.neopixl.pixlui.components.imageview.ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtRates"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dip"
+            android:layout_marginTop="8dp"
+            android:src="@mipmap/logo_temp" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rateRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl1"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:padding="5dip" />
+
 
 </RelativeLayout>

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -28,15 +27,12 @@ import com.techHome.dto.MessageCustomDialogDTO;
 import com.techHome.fragments.DashboardFragment;
 import com.techHome.fragments.NavigationDrawerAboutUsFragment;
 import com.techHome.fragments.NavigationDrawerContactUsFragment;
-import com.techHome.fragments.NavigationDrawerContactUsFragment;
 import com.techHome.fragments.NavigationDrawerFAQFragment;
 import com.techHome.fragments.NavigationDrawerHistoryFragment;
 import com.techHome.fragments.NavigationDrawerMyProfileFragment;
-import com.techHome.fragments.NavigationDrawerOffersFragment;
 import com.techHome.fragments.NavigationDrawerRatesFragment;
-import com.techHome.fragments.NavigationDrawerSettingsFragment;
 import com.techHome.ui.SnackBar;
-import com.techHome.util.Logout;
+import com.techHome.util.SessionManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -58,19 +54,15 @@ public class DashboardActivity extends AppCompatActivity {
     @Bind(R.id.navigation_view)
     NavigationView navigation_view;
     private MenuItem previousMenuItem;
-    int type;
-    SharedPreferences sp;
+    private SessionManager sessionManager;
+    private SharedPreferences preferences;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        Intent intent = this.getIntent();
-        if (intent != null) {
-            type = intent.getIntExtra("type", 1);
-        }
-        sp=getSharedPreferences("TechHomeLogin",Context.MODE_PRIVATE);
+        preferences = getSharedPreferences("AndroidLogin", Context.MODE_PRIVATE);
         populate();
     }
 
@@ -83,6 +75,7 @@ public class DashboardActivity extends AppCompatActivity {
         actionBar.setHomeAsUpIndicator(R.mipmap.ic_menu);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        sessionManager = new SessionManager(getApplicationContext());
         Bundle bundle = getIntent().getExtras();
         if (null != bundle) {
             if (bundle.containsKey("done") && bundle.getString("done").equals("done")) {
@@ -95,11 +88,7 @@ public class DashboardActivity extends AppCompatActivity {
             }
         }
 
-        if (type == 1) {
-            navigation_view.inflateMenu(R.menu.menu_dashboard_drawer);
-        } else {
-            navigation_view.inflateMenu(R.menu.menu_dashboard_drawer_2);
-        }
+        navigation_view.inflateMenu(R.menu.menu_dashboard_drawer);
         //setting up the navigation drawer
         navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -121,7 +110,7 @@ public class DashboardActivity extends AppCompatActivity {
                         DashboardFragment dashboardFragment = new DashboardFragment();
                         fragmentTransaction.replace(R.id.frame, dashboardFragment);
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("TechHome");
+                        getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
                         return true;
                     case R.id.myProfile:
                         NavigationDrawerMyProfileFragment navigationDrawerMyProfileFragment = new NavigationDrawerMyProfileFragment();
@@ -186,8 +175,7 @@ public class DashboardActivity extends AppCompatActivity {
                         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Logout logout = new Logout(DashboardActivity.this);
-                                logout.logout();
+                                logout();
                             }
                         });
 
@@ -201,11 +189,10 @@ public class DashboardActivity extends AppCompatActivity {
                         return true;
 
                     default:
-                        /*Toast.makeText(getApplicationContext(), "Something's Wrong.", Toast.LENGTH_SHORT).show();*/
+
                         return true;
                 }
-                /*item.setChecked(false)
-                Toast.makeText(DashboardActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();*/
+
             }
         });
 
@@ -232,10 +219,23 @@ public class DashboardActivity extends AppCompatActivity {
         drawer_layout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View convertView = LayoutInflater.from(this).inflate(R.layout.dashboard_drawer_header,null);
-        android.widget.TextView tvUser = (android.widget.TextView) convertView.findViewById(R.id.txtPhone);
-        tvUser.setText(sp.getString("Mobile",null));
+        View convertView = LayoutInflater.from(this).inflate(R.layout.dashboard_drawer_header, null);
+        android.widget.TextView txtUser = (android.widget.TextView) convertView.findViewById(R.id.txtPhone);
+        android.widget.TextView txtName = (android.widget.TextView) convertView.findViewById(R.id.txtName);
+        txtName.setText(preferences.getString("name", null));
+        txtUser.setText(preferences.getString("mobile", null));
         navigation_view.addHeaderView(convertView);
+    }
+
+    private void logout() {
+        sessionManager.setLogin(false);
+        preferences.edit().clear().commit();
+        Intent intent = new Intent(DashboardActivity.this, EnterModeActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("logout", "Logout");
+        intent.putExtras(bundle);
+        startActivity(intent);
+        finish();
     }
 
     @Override

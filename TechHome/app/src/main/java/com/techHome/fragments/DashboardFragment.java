@@ -2,7 +2,6 @@ package com.techHome.fragments;
 
 
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +12,6 @@ import android.view.ViewGroup;
 import com.techHome.R;
 import com.techHome.adapters.DashboardRecyclerAdapter;
 import com.techHome.constants.DashboardRecyclerInformation;
-import com.techHome.util.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,17 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.neopixl.pixlui.components.textview.TextView;
 import com.squareup.picasso.Picasso;
 import com.techHome.R;
 import com.techHome.activities.AppliancesActivity;
-import com.techHome.activities.DashboardActivity;
 import com.techHome.activities.PlumbingActivity;
 import com.techHome.activities.WiringActivity;
 import com.techHome.constants.DashboardRecyclerInformation;
-import com.techHome.util.ImageLoader;
 
 import java.util.Collections;
 import java.util.List;

@@ -5,6 +5,9 @@ import android.text.TextUtils;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.Volley;
+import com.techHome.dto.OrderDTO;
+
+import java.util.List;
 
 /**
  * Created by Harsh on 7/23/2016.
@@ -14,7 +17,6 @@ public class AppController extends Application {
     public static final String JSON_OBJECT_REQUEST = "json_obj_req";
 
     private com.android.volley.RequestQueue mRequestQueue;
-//    private ImageLoader mImageLoader;
 
 
     private static AppController mInstance;
@@ -49,14 +51,6 @@ public class AppController extends Application {
         return mRequestQueue;
     }
 
-    /*public ImageLoader getImageLoader() {
-        getRequestQueue();
-        if (mImageLoader == null) {
-            mImageLoader = new ImageLoader(this.mRequestQueue, new LruBitmapCache());
-        }
-        return this.mImageLoader;
-    }*/
-
     public <T> void addToRequestQueue(Request<T> req, String tag) {
         req.setTag(TextUtils.isEmpty(tag) ? TAG : tag);
         getRequestQueue().add(req);
@@ -72,6 +66,18 @@ public class AppController extends Application {
             mRequestQueue.cancelAll(tag);
         }
     }
+
+    private List<OrderDTO> orderDTOs;
+
+
+    public List<OrderDTO> getOrderDTOs() {
+        return orderDTOs;
+    }
+
+    public void setOrderDTOs(List<OrderDTO> orderDTOs) {
+        this.orderDTOs = orderDTOs;
+    }
+
 
 }
 

@@ -3,7 +3,6 @@ package com.techHome.activities;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -21,7 +20,7 @@ import android.widget.TextView;
 import com.techHome.R;
 import com.techHome.asynctasks.PlaceOrderAsyncTask;
 import com.techHome.dto.OrderDTO;
-import com.techHome.global.GlobalData;
+import com.techHome.global.AppController;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -151,11 +150,11 @@ public class PlaceOrderActivity extends AppCompatActivity {
                 orderDTO.setSlot(spinnerSlot.getSelectedItem().toString());
                 orderDTO.setDate(orderDate);
 
-                if (null == ((GlobalData) getApplicationContext()).getOrderDTOs()) {
-                    ((GlobalData) getApplicationContext()).setOrderDTOs(new ArrayList<OrderDTO>());
-                    ((GlobalData) getApplicationContext()).getOrderDTOs().add(orderDTO);
+                if (null == ((AppController) getApplicationContext()).getOrderDTOs()) {
+                    ((AppController) getApplicationContext()).setOrderDTOs(new ArrayList<OrderDTO>());
+                    ((AppController) getApplicationContext()).getOrderDTOs().add(orderDTO);
                 } else {
-                    ((GlobalData) getApplicationContext()).getOrderDTOs().add(orderDTO);
+                    ((AppController) getApplicationContext()).getOrderDTOs().add(orderDTO);
                 }
 
                 final AlertDialog.Builder builder = new AlertDialog.Builder(PlaceOrderActivity.this);
@@ -170,7 +169,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        PlaceOrderAsyncTask placeOrderAsyncTask = new PlaceOrderAsyncTask(PlaceOrderActivity.this, ((GlobalData)getApplicationContext()).getOrderDTOs());
+                        PlaceOrderAsyncTask placeOrderAsyncTask = new PlaceOrderAsyncTask(PlaceOrderActivity.this, ((AppController)getApplicationContext()).getOrderDTOs());
                         placeOrderAsyncTask.execute();
 
                     }

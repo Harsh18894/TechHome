@@ -17,7 +17,7 @@ import com.techHome.dto.ErrorDTO;
 import com.techHome.dto.MessageCustomDialogDTO;
 import com.techHome.dto.OrderDTO;
 import com.techHome.dto.SessionDTO;
-import com.techHome.global.GlobalData;
+import com.techHome.global.AppController;
 import com.techHome.ui.SnackBar;
 
 import org.apache.http.HttpEntity;
@@ -143,7 +143,7 @@ public class PlaceOrderAsyncTask extends AsyncTask<Void, Void, Void> implements 
                 JSONObject jsonObject = new JSONObject(result);
                 if (statusCode >= 200 && statusCode <= 299) {
                     if (jsonObject.has("response")) {
-                        ((GlobalData) context.getApplicationContext()).setOrderDTOs(new ArrayList<OrderDTO>());
+                        ((AppController) context.getApplicationContext()).setOrderDTOs(new ArrayList<OrderDTO>());
                         Intent intent = new Intent(context, DashboardActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putString("done", "done");

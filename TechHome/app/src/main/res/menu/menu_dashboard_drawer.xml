@@ -26,37 +26,26 @@
             android:id="@+id/rate"
             android:icon="@mipmap/rates"
             android:title="@string/rate_card" />
+
+        <item
+            android:id="@+id/about_us"
+            android:icon="@mipmap/about_us"
+            android:title="@string/about_us"/>
+
+        <item
+            android:id="@+id/contact_us"
+            android:icon="@mipmap/contact_us"
+            android:title="@string/contact_us"/>
+
+        <item
+            android:id="@+id/faqs"
+            android:icon="@mipmap/faqs"
+            android:title="@string/faqs"/>
+
+        <item
+            android:id="@+id/logout"
+            android:icon="@mipmap/logout"
+            android:title="@string/logout" />
     </group>
 
-    <item android:title="@string/all_labels">
-
-        <menu>
-<!--
-            <item
-                android:id="@+id/settings"
-                android:icon="@mipmap/settings"
-                android:title="@string/settings" />
--->
-
-            <item
-                android:id="@+id/about_us"
-                android:icon="@mipmap/about_us"
-                android:title="@string/about_us"/>
-
-            <item
-                android:id="@+id/contact_us"
-                android:icon="@mipmap/contact_us"
-                android:title="@string/contact_us"/>
-
-            <item
-                android:id="@+id/faqs"
-                android:icon="@mipmap/faqs"
-                android:title="@string/faqs"/>
-
-            <item
-                android:id="@+id/logout"
-                android:icon="@mipmap/logout"
-                android:title="@string/logout" />
-        </menu>
-    </item>
 </menu>

@@ -184,15 +184,15 @@ public class RegisterActivity extends AppCompatActivity {
                     boolean error = jObj.getBoolean("error");
                     if (!error) {
 
-                        Toast.makeText(getApplicationContext(), "User successfully registered. Try login now!", Toast.LENGTH_LONG).show();
-
                         // Launch main activity
                         sessionManager.setLogin(true);
                         JSONObject jsonObject = jObj.getJSONObject("user");
                         preferences.edit().putString("name", jsonObject.getString("name")).commit();
                         preferences.edit().putString("mobile", jsonObject.getString("mobile")).commit();
                         Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("register", "register");
+                        intent.putExtras(bundle);
                         startActivity(intent);
                         ActivityCompat.finishAffinity(RegisterActivity.this);
                     } else {

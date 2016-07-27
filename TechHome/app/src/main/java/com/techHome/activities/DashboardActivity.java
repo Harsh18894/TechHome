@@ -84,6 +84,30 @@ public class DashboardActivity extends AppCompatActivity {
                 messageCustomDialogDTO.setMessage(getResources().getString(R.string.order_success));
                 messageCustomDialogDTO.setButton(getResources().getString(R.string.ok));
                 messageCustomDialogDTO.setContext(DashboardActivity.this);
+                SnackBar.success(DashboardActivity.this, messageCustomDialogDTO);
+            }
+        }
+
+        Bundle bundle1 = getIntent().getExtras();
+        if (null != bundle1) {
+            if (bundle1.containsKey("login") && bundle1.get("login").equals("login")) {
+                MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
+                messageCustomDialogDTO.setTitle(getResources().getString(R.string.login));
+                messageCustomDialogDTO.setMessage(getResources().getString(R.string.login_success));
+                messageCustomDialogDTO.setButton(getResources().getString(R.string.ok));
+                messageCustomDialogDTO.setContext(DashboardActivity.this);
+                SnackBar.show(DashboardActivity.this, messageCustomDialogDTO);
+            }
+        }
+
+        Bundle bundle2 = getIntent().getExtras();
+        if (null != bundle1) {
+            if (bundle2.containsKey("register") && bundle2.get("register").equals("register")) {
+                MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
+                messageCustomDialogDTO.setTitle(getResources().getString(R.string.registration));
+                messageCustomDialogDTO.setMessage(getResources().getString(R.string.registration_success));
+                messageCustomDialogDTO.setButton(getResources().getString(R.string.ok));
+                messageCustomDialogDTO.setContext(DashboardActivity.this);
                 SnackBar.show(DashboardActivity.this, messageCustomDialogDTO);
             }
         }

@@ -7,13 +7,24 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
+    <ImageView
+        android:id="@+id/imgNoNotifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/no_orders"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="80dip"/>
+
     <TextView
         android:id="@+id/txtNoNotifications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginTop="40dip"
         android:text="@string/no_notifications"
         android:textSize="20sp"
+        android:layout_below="@+id/imgNoNotifications"
         android:alpha="0.7"/>
 
 </RelativeLayout>

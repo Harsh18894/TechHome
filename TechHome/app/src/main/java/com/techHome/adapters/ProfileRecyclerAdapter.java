@@ -38,8 +38,8 @@ public class ProfileRecyclerAdapter extends RecyclerView.Adapter<ProfileRecycler
     public void onBindViewHolder(ProfileViewHolder holder, int position) {
 
         ProfileRecyclerInformation current = data.get(position);
-        holder.txtAttribute.setText(current.attribute);
-        holder.txtValue.setText(current.value);
+        holder.txtAttribute.setText(current.getAttribute());
+        holder.txtValue.setText(current.getValue());
     }
 
 

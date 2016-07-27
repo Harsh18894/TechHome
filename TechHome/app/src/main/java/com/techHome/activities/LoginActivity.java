@@ -157,6 +157,8 @@ public class LoginActivity extends AppCompatActivity {
                     // Check for error node in json
                     if (!error) {
                         // user successfully logged in
+
+
                         // Create login session
                         sessionManager.setLogin(true);
 
@@ -165,7 +167,9 @@ public class LoginActivity extends AppCompatActivity {
                         preferences.edit().putString("name", jsonObject.getString("name")).commit();
                         preferences.edit().putString("mobile", jsonObject.getString("mobile")).commit();
                         Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("login", "login");
+                        intent.putExtras(bundle);
                         startActivity(intent);
                         ActivityCompat.finishAffinity(LoginActivity.this);
                     } else {

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white_smoke">
 
     <include
         android:id="@+id/toolbar"
@@ -34,15 +35,15 @@
     <com.neopixl.pixlui.components.edittext.EditText
         android:id="@+id/etIssueDescription"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="120dip"
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
-        android:layout_marginTop="25dip"
+        android:layout_marginTop="20dip"
         android:alpha="0.7"
         android:gravity="top"
+        android:background="@drawable/input_text_background"
         android:hint="@string/plumbing_details"
         android:maxLines="10"
-        android:minLines="8"
         android:padding="10dip"
         android:singleLine="false" />
 
@@ -59,5 +60,6 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp" />
+
 
 </LinearLayout>

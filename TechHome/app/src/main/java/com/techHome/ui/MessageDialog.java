@@ -11,7 +11,7 @@ import com.techHome.R;
 import com.techHome.dto.MessageCustomDialogDTO;
 
 /**
- * Created by Dell on 5/15/2016.
+ * Created by Harsh on 5/15/2016.
  */
 public class MessageDialog {
 

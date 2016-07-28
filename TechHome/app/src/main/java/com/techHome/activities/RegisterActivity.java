@@ -39,7 +39,7 @@ import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
- * Created by Dell on 4/14/2016.
+ * Created by Harsh on 4/14/2016.
  */
 
 //Registration of a user
@@ -87,14 +87,14 @@ public class RegisterActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.register);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
      /*   SpannableString s = new SpannableString("Create New Account");
         ((TextView) toolbar.findViewById(R.id.toolbarTitle)).setText(s);
         getSupportActionBar().setTitle("");*/
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            btnRegister.setBackgroundResource(R.drawable.ripple);
+            btnRegister.setBackgroundResource(R.drawable.ripple_rounded);
         }
 
         dialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);

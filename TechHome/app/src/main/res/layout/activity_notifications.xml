@@ -23,7 +23,8 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="40dip"
         android:text="@string/no_notifications"
-        android:textSize="20sp"
+        android:textSize="22sp"
+        android:textStyle="bold"
         android:layout_below="@+id/imgNoNotifications"
         android:alpha="0.7"/>
 

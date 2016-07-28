@@ -11,16 +11,19 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.neopixl.pixlui.components.edittext.EditText;
 import com.techHome.R;
-import com.techHome.dto.OrderDTO;
+import com.techHome.ui.SnackBar;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import fr.ganfra.materialspinner.MaterialSpinner;
 
 /**
- * Created by Dell on 4/16/2016.
+ * Created by Harsh on 4/16/2016.
  */
 
 //Wiring setup
@@ -55,6 +58,7 @@ public class WiringActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.wiring);
 
+
         wiring = getApplication().getResources().getStringArray(R.array.wiring_issues);
 
         //setting up ripple effect in the buttons
@@ -69,10 +73,22 @@ public class WiringActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OrderDTO orderDTO = new OrderDTO();
-                orderDTO.setCategory(materialSpinner.getSelectedItem().toString());
-                orderDTO.setDescription(etIssueDescription.getText().toString());
+
+                if (materialSpinner.getSelectedItem().toString().equals("Wiring Options")) {
+                    SnackBar.show(WiringActivity.this, "Please Select any option");
+                    return;
+                }
+
+                if (etIssueDescription.getText().toString().equals("")) {
+                    SnackBar.show(WiringActivity.this, "Please Fill Description");
+                    return;
+                }
+
+                Bundle bundle = new Bundle();
+                bundle.putString("category", materialSpinner.getSelectedItem().toString());
+                bundle.putString("desc", etIssueDescription.getText().toString());
                 Intent intent = new Intent(WiringActivity.this, PlaceOrderActivity.class);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
 

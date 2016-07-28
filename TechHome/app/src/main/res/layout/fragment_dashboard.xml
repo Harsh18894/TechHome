@@ -23,22 +23,18 @@
     </RelativeLayout>
 
 
-    <!--
-        <GridView
-            android:id="@+id/gridViewIcons"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_below="@+id/imgLogo"
-            android:layout_marginLeft="-5dip"
-            android:layout_marginRight="-5dip"
-            android:layout_marginTop="-15dip"
-            android:numColumns="auto_fit"
-            android:padding="5dip"
-            android:stretchMode="columnWidth">
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="110dp"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
 
-        </GridView>
-    -->
-
+    </com.google.android.gms.ads.AdView>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/dashboardRecyclerView"
@@ -51,5 +47,6 @@
         android:padding="5dip">
 
     </android.support.v7.widget.RecyclerView>
+
 
 </RelativeLayout>

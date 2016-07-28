@@ -1,7 +1,6 @@
 package com.techHome.activities;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,16 +11,15 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.neopixl.pixlui.components.textview.TextView;
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.techHome.R;
 import com.techHome.dto.MessageCustomDialogDTO;
 import com.techHome.fragments.DashboardFragment;
@@ -38,7 +36,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Created by Dell on 4/13/2016.
+ * Created by Harsh on 4/13/2016.
  */
 
 //Main Activity of the application
@@ -75,6 +73,7 @@ public class DashboardActivity extends AppCompatActivity {
         actionBar.setHomeAsUpIndicator(R.mipmap.ic_menu);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+
         sessionManager = new SessionManager(getApplicationContext());
         Bundle bundle = getIntent().getExtras();
         if (null != bundle) {
@@ -96,7 +95,7 @@ public class DashboardActivity extends AppCompatActivity {
                 messageCustomDialogDTO.setMessage(getResources().getString(R.string.login_success));
                 messageCustomDialogDTO.setButton(getResources().getString(R.string.ok));
                 messageCustomDialogDTO.setContext(DashboardActivity.this);
-                SnackBar.show(DashboardActivity.this, messageCustomDialogDTO);
+                SnackBar.success(DashboardActivity.this, messageCustomDialogDTO);
             }
         }
 
@@ -108,7 +107,7 @@ public class DashboardActivity extends AppCompatActivity {
                 messageCustomDialogDTO.setMessage(getResources().getString(R.string.registration_success));
                 messageCustomDialogDTO.setButton(getResources().getString(R.string.ok));
                 messageCustomDialogDTO.setContext(DashboardActivity.this);
-                SnackBar.show(DashboardActivity.this, messageCustomDialogDTO);
+                SnackBar.success(DashboardActivity.this, messageCustomDialogDTO);
             }
         }
 
@@ -187,33 +186,31 @@ public class DashboardActivity extends AppCompatActivity {
                         getSupportActionBar().setTitle(R.string.faqs);
                         return true;
                     case R.id.logout:
-                        AlertDialog.Builder builder = new AlertDialog.Builder(DashboardActivity.this);
-                        builder.setTitle("LOG OUT");
-                        TextView textView = new TextView(DashboardActivity.this);
-                        textView.setText("Are you sure you want to logout?");
-                        textView.setGravity(Gravity.CENTER);
-                        textView.setPadding(0, 80, 0, 0);
-                        textView.setTextSize(17);
-                        builder.setView(textView);
-
-                        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        MaterialDialog.Builder builder = new MaterialDialog.Builder(DashboardActivity.this);
+                        final MaterialDialog dialog = builder.build();
+                        builder.title(R.string.logout).content(R.string.logout_message).positiveText(R.string.logout).negativeText(R.string.cancel).typeface("roboto_bold.ttf", "roboto_light.ttf");
+                        builder.onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                logout();
+                            public void onClick(MaterialDialog materialDialog, DialogAction which) {
+                                dialog.dismiss();
+                                try {
+                                    logout();
+                                } catch (Exception e) {
+                                    SnackBar.show(DashboardActivity.this, e.toString());
+                                    e.printStackTrace();
+                                }
                             }
                         });
-
-                        builder.setNegativeButton("NO", null);
+                        builder.onNegative(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(MaterialDialog materialDialog, DialogAction which) {
+                                dialog.dismiss();
+                            }
+                        });
                         builder.show();
                         return true;
 
-                    case R.id.signin:
-                        Intent i = new Intent(DashboardActivity.this, EnterModeActivity.class);
-                        startActivity(i);
-                        return true;
-
                     default:
-
                         return true;
                 }
 

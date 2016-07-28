@@ -14,7 +14,7 @@
 
         <item
             android:id="@+id/history"
-            android:icon="@mipmap/history"
+            android:icon="@mipmap/app_offers"
             android:title="@string/history" />
 
         <!--<item

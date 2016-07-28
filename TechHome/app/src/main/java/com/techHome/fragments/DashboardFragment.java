@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.techHome.R;
 import com.techHome.adapters.DashboardRecyclerAdapter;
 import com.techHome.constants.DashboardRecyclerInformation;
@@ -35,7 +38,7 @@ public class DashboardFragment extends android.support.v4.app.Fragment {
     private DashboardRecyclerAdapter adapter;
     private View parentView;
 
-    private final int[] titles = {R.string.appliances_dashboard, R.string.wiring_dashboard ,R.string.plumbing_dashboard};
+    private final int[] titles = {R.string.appliances_dashboard, R.string.wiring_dashboard, R.string.plumbing_dashboard};
     private final int[] descs = {R.string.appliances_desc, R.string.wiring_desc, R.string.plumbing_desc};
     private final String[] iconId = {"http://techhome.net16.net/static/appliances.png", "http://techhome.net16.net/static/wiring.png", "http://techhome.net16.net/static/plumbing.png"};
 
@@ -50,6 +53,11 @@ public class DashboardFragment extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         parentView = inflater.inflate(R.layout.fragment_dashboard, container, false);
         ButterKnife.bind(this, parentView);
+        MobileAds.initialize(getActivity(), "ca-app-pub-8579317175981674~4616852742");
+        AdView mAdView = (AdView) parentView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         populate();
         return parentView;
     }
@@ -69,7 +77,7 @@ public class DashboardFragment extends android.support.v4.app.Fragment {
 
 
         for (int i = 0; i < titles.length && i < iconId.length; i++) {
-         DashboardRecyclerInformation dashboardRecyclerInformation = new DashboardRecyclerInformation();
+            DashboardRecyclerInformation dashboardRecyclerInformation = new DashboardRecyclerInformation();
             dashboardRecyclerInformation.setTitle(titles[i]);
             dashboardRecyclerInformation.setDesc(descs[i]);
             dashboardRecyclerInformation.setIconId(iconId[i]);

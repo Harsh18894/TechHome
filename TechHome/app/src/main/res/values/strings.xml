@@ -10,7 +10,7 @@
 
     <string name="my_profile">My Profile</string>
     <string name="login_register">Sign In/Register</string>
-    <string name="history">History</string>
+    <string name="history">Latest Order</string>
     <string name="app_offers">App Offers</string>
     <string name="my_issues">My Issues</string>
     <string name="my_orders">My Orders</string>
@@ -27,7 +27,7 @@
     <string name="refrigerator">Refrigerator</string>
     <string name="cooler">Cooler</string>
     <string name="tv">TV</string>
-    <string name="others">Others</string>
+    <string name="others">Other Appliance Problem</string>
     <string name="electrical">Electrical Utilities</string>
     <string name="wiring">Wiring Options</string>
     <string name="plumbing">Plumbing Options</string>
@@ -97,11 +97,13 @@
 
     <string-array name="wiring_issues">
         <item>Full Home Wiring</item>
+        <item>Other Wiring Problems</item>
     </string-array>
 
     <string-array name="plumbing_issues">
-        <item>Fitting</item>
-        <item>Repairing</item>
+        <item>Fitting Pipes and Others</item>
+        <item>Repairing Pipes and Others</item>
+        <item>Others Plumbing Problems</item>
     </string-array>
 
     <string-array name="city_names">
@@ -110,7 +112,6 @@
         <item>Muradnagar</item>
         <item>Modinagar</item>
         <item>Saharanpur</item>
-        <item>Dehradun</item>
     </string-array>
 
     <string-array name="time_slots">
@@ -145,6 +146,15 @@
     <string name="shivam">Shivam Tyagi</string>
     <string name="registration_success">Registration Successful</string>
     <string name="login_success">Login Successful</string>
-
+    <string name="invalid_date">Select Valid Date</string>
+    <string name="order_type">Order Type</string>
+    <string name="order_description">Order Description</string>
+    <string name="order_date">Service Date</string>
+    <string name="order_city">City</string>
+    <string name="order_slot">Service Slot</string>
+    <string name="order_phone">Mobile Number</string>
+    <string name="logout_message">Are you sure you want to logout?</string>
+    <string name="cancel">Cancel</string>
+    <string name="banner_ad_unit_id">ca-app-pub-8579317175981674/4616852742</string>
 
 </resources>

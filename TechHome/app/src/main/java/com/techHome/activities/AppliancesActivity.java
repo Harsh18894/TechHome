@@ -11,16 +11,19 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.neopixl.pixlui.components.edittext.EditText;
 import com.techHome.R;
-import com.techHome.dto.OrderDTO;
+import com.techHome.ui.SnackBar;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import fr.ganfra.materialspinner.MaterialSpinner;
 
 /**
- * Created by Dell on 4/16/2016.
+ * Created by Harsh on 4/16/2016.
  */
 
 //Appliances grid item setup
@@ -60,7 +63,6 @@ Declaring and intialising the variables..
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         appliances = getApplication().getResources().getStringArray(R.array.appliance_issue);
 
         //setting up ripple effect in the buttons
@@ -75,10 +77,22 @@ Declaring and intialising the variables..
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OrderDTO orderDTO = new OrderDTO();
-                orderDTO.setCategory(materialSpinner.getSelectedItem().toString());
-                orderDTO.setDescription(etIssueDescription.getText().toString());
+
+                if (materialSpinner.getSelectedItem().toString().equals("Select Appliance")) {
+                    SnackBar.show(AppliancesActivity.this, "Please Select Appliance");
+                    return;
+                }
+
+                if (etIssueDescription.getText().toString().equals("")) {
+                    SnackBar.show(AppliancesActivity.this, "Please Fill Description");
+                    return;
+                }
+
+                Bundle bundle = new Bundle();
+                bundle.putString("category", materialSpinner.getSelectedItem().toString());
+                bundle.putString("desc", etIssueDescription.getText().toString());
                 Intent intent = new Intent(AppliancesActivity.this, PlaceOrderActivity.class);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
 

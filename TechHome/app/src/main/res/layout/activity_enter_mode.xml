@@ -47,7 +47,7 @@
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
         android:layout_marginTop="60dip"
-        android:background="@drawable/rounded_button"
+        android:background="@color/colorPrimaryDark"
         android:text="@string/login"
         android:textColor="@color/white_smoke"
         android:textSize="15dip" />
@@ -61,7 +61,7 @@
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
         android:layout_marginTop="20dip"
-        android:background="@drawable/rounded_button"
+        android:background="@color/colorPrimaryDark"
         android:text="@string/registration"
         android:textColor="@color/white_smoke"
         android:textSize="15dip" />

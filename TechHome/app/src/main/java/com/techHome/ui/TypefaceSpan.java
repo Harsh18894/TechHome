@@ -8,7 +8,7 @@ import android.text.style.MetricAffectingSpan;
 import android.util.LruCache;
 
 /**
- * Created by Dell on 4/24/2016.
+ * Created by Harsh on 4/24/2016.
  */
 public class TypefaceSpan extends MetricAffectingSpan {
     /**

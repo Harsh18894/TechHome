@@ -1,7 +1,7 @@
 package com.techHome.dto;
 
 /**
- * Created by Dell on 5/15/2016.
+ * Created by Harsh on 5/15/2016.
  */
 public class ErrorDTO {
 

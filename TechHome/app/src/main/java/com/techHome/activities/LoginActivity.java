@@ -39,7 +39,7 @@ import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
- * Created by Dell on 4/14/2016.
+ * Created by Harsh on 4/14/2016.
  */
 
 //Login page
@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            btnLogin.setBackgroundResource(R.drawable.ripple);
+            btnLogin.setBackgroundResource(R.drawable.ripple_rounded);
         }
 
         sessionManager = new SessionManager(getApplicationContext());

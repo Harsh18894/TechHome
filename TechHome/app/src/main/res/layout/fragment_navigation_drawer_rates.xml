@@ -33,6 +33,14 @@
             android:layout_marginBottom="12dip"
             android:layout_marginTop="8dp"
             android:src="@mipmap/logo_temp" />
+
+        <TextView
+            android:id="@+id/txtConditionsApply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*Conditions Apply"
+            android:layout_toRightOf="@+id/imgLogo"
+            android:layout_below="@+id/imgLogo" />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

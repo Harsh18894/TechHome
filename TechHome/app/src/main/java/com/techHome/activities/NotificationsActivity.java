@@ -12,7 +12,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Created by Dell on 4/24/2016.
+ * Created by Harsh on 4/24/2016.
  */
 
 //Notifications setup

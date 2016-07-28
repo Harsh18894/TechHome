@@ -15,16 +15,14 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Created by Dell on 5/14/2016.
+ * Created by Harsh on 5/14/2016.
  */
 public class ForgotPasswordActivity extends AppCompatActivity {
 
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-    /*@Bind(R.id.etPhoneNumber)
-    EditText etPhoneNumber;
-   */ @Bind(R.id.btnForgotPassword)
+ @Bind(R.id.btnForgotPassword)
     Button btnForgotPassword;
 
 

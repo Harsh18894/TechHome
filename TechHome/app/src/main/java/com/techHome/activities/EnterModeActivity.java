@@ -18,7 +18,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Created by Dell on 4/16/2016.
+ * Created by Harsh on 4/16/2016.
  */
 
 //entering preferences setup
@@ -46,10 +46,6 @@ public class EnterModeActivity extends AppCompatActivity {
 
     private void populate() {
         ButterKnife.bind(this);
-
-
-        /*setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(R.string.enter_mode);*/
 
 
         Bundle bundle = getIntent().getExtras();
@@ -81,7 +77,7 @@ public class EnterModeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(EnterModeActivity.this, LoginActivity.class);
-                // i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
                 startActivity(i);
             }
         });
@@ -90,8 +86,9 @@ public class EnterModeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(EnterModeActivity.this, RegisterActivity.class);
-                //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
                 startActivity(i);
+
             }
         });
 
@@ -99,9 +96,6 @@ public class EnterModeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EnterModeActivity.this, DashboardActivity.class);
- /*               intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.putExtra("type",2);
- */
                 startActivity(intent);
                 finish();
             }
@@ -119,8 +113,7 @@ public class EnterModeActivity extends AppCompatActivity {
 
         this.doubleBackToExitPressedOnce = true;
 
-        Snackbar snackbar = Snackbar.make(relativeLayout, "Press back again to exit.", Snackbar.LENGTH_LONG);
-        snackbar.show();
+        SnackBar.show(EnterModeActivity.this, "Press Again to Exit");
 
         new Handler().postDelayed(new Runnable() {
 

@@ -5,7 +5,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 
 /**
- * Created by Dell on 4/24/2016.
+ * Created by Harsh on 4/24/2016.
  */
 public class CustomTitle {
     public static SpannableString getTitle(Context context, String title) {

@@ -56,8 +56,8 @@ public class NavigationDrawerRatesFragment extends android.support.v4.app.Fragme
     public List<RatesRecyclerInformation> getData(){
         List<RatesRecyclerInformation> data = new ArrayList<>();
         String[] cities = {"Meerut", "Modinagar", "Muradnagar" ,"Ghaziabad", "Saharanpur"};
-        String[] prices = {"Rs. 149", "Rs. 99", "Rs. 99", "Rs. 149", "Rs. 199"};
-        String[] condition = {"Visit charges - 7:30am to 7:00pm", "Visit charges - 7:30am to 7:00pm", "Visit charges - 7:30am to 7:00pm", "Visit charges - 7:30am to 7:00pm", "Visit charges - 7:30am to 7:00pm"};
+        String[] prices = {"Rs. 149*", "Rs. 99*", "Rs. 99*", "Rs. 149*", "Rs. 199*"};
+        String[] condition = {"*Visit charges - 7:30am to 7:00pm", "*Visit charges - 7:30am to 7:00pm", "*Visit charges - 7:30am to 7:00pm", "*Visit charges - 7:30am to 7:00pm", "*Visit charges - 7:30am to 7:00pm"};
         String[] info = {"Rest according to the work done", "Rest according to the work done", "Rest according to the work done", "Rest according to the work done", "Rest according to the work done"};
 
         for (int i = 0; i < cities.length; i++){

@@ -111,7 +111,7 @@ public class NavigationDrawerMyProfileFragment extends android.support.v4.app.Fr
             public void onErrorResponse(VolleyError error) {
 
                 Log.e(DashboardActivity.class.getSimpleName(), "Profile Error: " + error.getMessage());
-                Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
                 hideDialog();
             }
         }) {

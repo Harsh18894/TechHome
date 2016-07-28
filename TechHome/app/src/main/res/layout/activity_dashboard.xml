@@ -5,15 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
-    <!--
 
-        <android.support.design.widget.CoordinatorLayout
-            android:id="@+id/coordinatorLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|enterAlways">
-
-    -->
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinator"
         android:layout_width="match_parent"
@@ -45,22 +37,10 @@
 
         </FrameLayout>
 
+
     </android.support.design.widget.CoordinatorLayout>
 
 
-    <!--            <GridView
-                    android:id="@+id/gridViewIcons"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_below="@+id/imgLogo"
-                    android:layout_marginLeft="-5dip"
-                    android:layout_marginRight="-5dip"
-                    android:layout_marginTop="-15dip"
-                    android:numColumns="auto_fit"
-                    android:padding="5dip"
-                    android:stretchMode="columnWidth">
-
-                </GridView>-->
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"

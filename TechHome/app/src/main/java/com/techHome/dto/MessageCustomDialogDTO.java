@@ -3,7 +3,7 @@ package com.techHome.dto;
 import android.content.Context;
 
 /**
- * Created by Dell on 5/15/2016.
+ * Created by Harsh on 5/15/2016.
  */
 public class MessageCustomDialogDTO {
     private Context context;

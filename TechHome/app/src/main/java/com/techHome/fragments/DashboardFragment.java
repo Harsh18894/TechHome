@@ -40,7 +40,7 @@ public class DashboardFragment extends android.support.v4.app.Fragment {
 
     private final int[] titles = {R.string.appliances_dashboard, R.string.wiring_dashboard, R.string.plumbing_dashboard};
     private final int[] descs = {R.string.appliances_desc, R.string.wiring_desc, R.string.plumbing_desc};
-    private final String[] iconId = {"http://techhome.net16.net/static/appliances.png", "http://techhome.net16.net/static/wiring.png", "http://techhome.net16.net/static/plumbing.png"};
+    private final String[] iconId = {"http://techhome.esy.es/static/appliances.png", "http://techhome.esy.es/static/wiring.png", "http://techhome.esy.es/static/plumbing.png"};
 
     public DashboardFragment() {
         // Required empty public constructor
